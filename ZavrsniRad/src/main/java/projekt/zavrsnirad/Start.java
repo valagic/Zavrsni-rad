@@ -5,6 +5,8 @@
  */
 package projekt.zavrsnirad;
 
+import projekt.zavrsnirad.util.HibernateUtil;
+
 /**
  *
  * @author valagic
@@ -12,7 +14,7 @@ package projekt.zavrsnirad;
 public class Start {
     
     public static void main(String[] args) {
-        //HibernateUtil.getSession();
+        HibernateUtil.getSession();
         
         
     }

@@ -15,10 +15,12 @@ import javax.persistence.MappedSuperclass;
  * @author valagic
  */
 @MappedSuperclass
-public class Entitet {
+public abstract class Entitet {
+    //abstraktna klasa je klasa koje ne moze nikoga nasljedivati ali njih se moze
+    //nasljedivati i ne moze se koristiti za stvaranje objekata
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id //oznacava primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // ovo je isto kao auto_increment u mysql-u
     private Long id;
 
     public Long getId() {

@@ -4,7 +4,7 @@
         
         <!-- 
         Potrebno je ručno kreirati bazu
-        create database edunovajp24_hib default character set utf8;
+         create database edunovajp24_hib default character set utf8mb4;
 -->
 <hibernate-configuration>
     <session-factory>
@@ -44,6 +44,12 @@
 
         <!-- Ovdje navodimo mapirane klase -->
        <!-- <mapping class="paket.Klasa" />  -->
+       
+       <mapping class="projekt.zavrsnirad.model.Igrac" />
+       <mapping class="projekt.zavrsnirad.model.Trener" />
+       <mapping class="projekt.zavrsnirad.model.Statistika" />
+       <mapping class="projekt.zavrsnirad.model.Utakmica" />
+       <mapping class="projekt.zavrsnirad.model.Ekipa" />
        
     </session-factory>
 </hibernate-configuration>

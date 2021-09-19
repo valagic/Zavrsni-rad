@@ -9,7 +9,7 @@ package projekt.zavrsnirad.util;
  *
  * @author valagic
  */
-public class NbaExepction {
+public class NbaExepction extends Exception{
     
     private String poruka;
     

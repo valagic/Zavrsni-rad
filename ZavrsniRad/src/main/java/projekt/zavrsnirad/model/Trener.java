@@ -12,28 +12,27 @@ import javax.persistence.Entity;
  * @author valagic
  */
 @Entity
-public class Trener extends Entitet{
+public class Trener extends Osoba{
+
+    private Integer brojPobjedaUKarijeri;
+    private Integer brojPorazaUKarijeri;
+
+    public Integer getBrojPobjedaUKarijeri() {
+        return brojPobjedaUKarijeri;
+    }
+
+    public void setBrojPobjedaUKarijeri(Integer brojPobjedaUKarijeri) {
+        this.brojPobjedaUKarijeri = brojPobjedaUKarijeri;
+    }
+
+    public Integer getBrojPorazaUKarijeri() {
+        return brojPorazaUKarijeri;
+    }
+
+    public void setBrojPorazaUKarijeri(Integer brojPorazaUKarijeri) {
+        this.brojPorazaUKarijeri = brojPorazaUKarijeri;
+    }
     
-   private String ime;
-   private String prezime;
-
-    public String getIme() {
-        return ime;
-    }
-
-    public void setIme(String ime) {
-        this.ime = ime;
-    }
-
-    public String getPrezime() {
-        return prezime;
-    }
-
-    public void setPrezime(String prezime) {
-        this.prezime = prezime;
-    }
-   
-   
+    
     
 }
-

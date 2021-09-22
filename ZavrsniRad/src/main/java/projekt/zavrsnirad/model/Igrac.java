@@ -5,6 +5,8 @@
  */
 package projekt.zavrsnirad.model;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import javax.persistence.Entity;
 
 /**
@@ -12,25 +14,25 @@ import javax.persistence.Entity;
  * @author valagic
  */
 @Entity
-public class Igrac extends Entitet{
+public class Igrac extends Osoba{
     
-    private String ime;
-    private String prezime;
+    private BigDecimal placa;
+    private Date ugovorPotpisan;
 
-    public String getIme() {
-        return ime;
+    public BigDecimal getPlaca() {
+        return placa;
     }
 
-    public void setIme(String ime) {
-        this.ime = ime;
+    public void setPlaca(BigDecimal placa) {
+        this.placa = placa;
     }
 
-    public String getPrezime() {
-        return prezime;
+    public Date getUgovorPotpisan() {
+        return ugovorPotpisan;
     }
 
-    public void setPrezime(String prezime) {
-        this.prezime = prezime;
+    public void setUgovorPotpisan(Date ugovorPotpisan) {
+        this.ugovorPotpisan = ugovorPotpisan;
     }
     
     

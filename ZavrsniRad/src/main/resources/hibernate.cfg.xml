@@ -5,12 +5,13 @@
         <!-- 
         Potrebno je ručno kreirati bazu
          create database edunovajp24_hib default character set utf8mb4;
+         create database nba_hib default character set utf8mb4;
 -->
 <hibernate-configuration>
     <session-factory>
         <!-- JDBC Database connection settings -->
         <property name="connection.driver_class">org.mariadb.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mariadb://localhost:3306/edunovajp24_hib</property>
+        <property name="connection.url">jdbc:mariadb://localhost:3306/nba_hib</property>
         <property name="connection.username">valagic</property>
         <property name="connection.password">valagic</property>
         <!-- JDBC connection pool settings ... using built-in test pool -->

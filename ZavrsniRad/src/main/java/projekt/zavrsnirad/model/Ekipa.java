@@ -15,25 +15,17 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Ekipa extends Entitet{
-    
-    private String nazivEkipe;
+
+    private String nazivDomaceEkipe;
+    private String nazivGostujuceEkipe;
     
     @ManyToOne
     private Trener treneri;
     
     @ManyToOne
     private Igrac igraci;
+
     
-   
-
-    public String getNazivEkipe() {
-        return nazivEkipe;
-    }
-
-    public void setNazivEkipe(String nazivEkipe) {
-        this.nazivEkipe = nazivEkipe;
-    }
-
     public Trener getTreneri() {
         return treneri;
     }
@@ -50,8 +42,21 @@ public class Ekipa extends Entitet{
         this.igraci = igraci;
     }
 
-  
+    public String getNazivDomaceEkipe() {
+        return nazivDomaceEkipe;
+    }
+
+    public void setNazivDomaceEkipe(String nazivDomaceEkipe) {
+        this.nazivDomaceEkipe = nazivDomaceEkipe;
+    }
+
+    public String getNazivGostujuceEkipe() {
+        return nazivGostujuceEkipe;
+    }
+
+    public void setNazivGostujuceEkipe(String nazivGostujuceEkipe) {
+        this.nazivGostujuceEkipe = nazivGostujuceEkipe;
+    }
 
     
-  
 }

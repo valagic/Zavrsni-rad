@@ -5,6 +5,7 @@
  */
 package projekt.zavrsnirad.model;
 
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -15,16 +16,17 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Utakmica extends Entitet{
     
+    
     private String nazivDvorane;
-    private String nazivDomaceEkipe;
-    private String nazivGostujuceEkipe;
+    private Date DatumPocetka;
     private Integer rezultatDomaceEkipe;
     private Integer rezultatGostujuceEkipe;
 
     @ManyToOne
     private Ekipa ekipe;
-    
+   
     public String getNazivDvorane() {
+        
         return nazivDvorane;
     }
 
@@ -32,20 +34,12 @@ public class Utakmica extends Entitet{
         this.nazivDvorane = nazivDvorane;
     }
 
-    public String getNazivDomaceEkipe() {
-        return nazivDomaceEkipe;
+    public Date getDatumPocetka() {
+        return DatumPocetka;
     }
 
-    public void setNazivDomaceEkipe(String nazivDomaceEkipe) {
-        this.nazivDomaceEkipe = nazivDomaceEkipe;
-    }
-
-    public String getNazivGostujuceEkipe() {
-        return nazivGostujuceEkipe;
-    }
-
-    public void setNazivGostujuceEkipe(String nazivGostujuceEkipe) {
-        this.nazivGostujuceEkipe = nazivGostujuceEkipe;
+    public void setDatumPocetka(Date DatumPocetka) {
+        this.DatumPocetka = DatumPocetka;
     }
 
     public Integer getRezultatDomaceEkipe() {
@@ -63,7 +57,14 @@ public class Utakmica extends Entitet{
     public void setRezultatGostujuceEkipe(Integer rezultatGostujuceEkipe) {
         this.rezultatGostujuceEkipe = rezultatGostujuceEkipe;
     }
+
+    public Ekipa getEkipe() {
+        return ekipe;
+    }
+
+    public void setEkipe(Ekipa ekipe) {
+        this.ekipe = ekipe;
+    }
     
-    
-    
+
 }

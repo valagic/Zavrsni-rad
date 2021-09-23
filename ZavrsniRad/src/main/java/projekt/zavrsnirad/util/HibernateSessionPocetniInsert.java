@@ -11,6 +11,7 @@ import java.util.Date;
 import org.hibernate.Session;
 import projekt.zavrsnirad.model.Ekipa;
 import projekt.zavrsnirad.model.Igrac;
+import projekt.zavrsnirad.model.Statistika;
 import projekt.zavrsnirad.model.Trener;
 import projekt.zavrsnirad.model.Utakmica;
 
@@ -43,22 +44,31 @@ public class HibernateSessionPocetniInsert {
         s.save(t);
         
         Ekipa e = new Ekipa();
-        e.setNazivDomaceEkipe("Chicago");
-        e.setNazivGostujuceEkipe("Memphis");
-        e.setRezultatDomaceEkipe(112);
-        e.setRezultatGostujuceEkipe(108);
+        e.setNazivEkipe("Dallas Mavericks");
         e.setIgraci(i);
         e.setTreneri(t);
+
         s.save(e);
         
         Utakmica u = new Utakmica();
-        
-        
+ 
         u.setDatumPocetka(new Date());
         u.setNazivDvorane("Gradski vrt");
         u.setEkipe(e);
+       
         s.save(u);
         
+        Statistika ss = new Statistika();
+        ss.setBrojPoena(33);
+        ss.setBrojSkokova(8);
+        ss.setBrojAsistencija(4);
+        ss.setBrojUkradenihLopti(2);
+        ss.setBrojBlokiranihSuteva(1);
+        ss.setBrojIzgubljenihLopti(0);
+        ss.setIgraci(i);
+        //ss.setUtakmice(u);
+        s.save(ss);
+       
         s.getTransaction().commit();
     }
 

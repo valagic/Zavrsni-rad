@@ -23,6 +23,8 @@ public class Utakmica extends Entitet{
 
     @ManyToOne
     private Ekipa ekipe;
+    
+    
    
     public String getNazivDvorane() {
         
@@ -48,6 +50,8 @@ public class Utakmica extends Entitet{
     public void setEkipe(Ekipa ekipe) {
         this.ekipe = ekipe;
     }
-    
+
+   
+  
 
 }

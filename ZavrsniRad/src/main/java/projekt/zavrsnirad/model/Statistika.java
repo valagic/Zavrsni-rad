@@ -22,12 +22,13 @@ public class Statistika extends Entitet{
     private Integer brojBlokiranihSuteva;
     private Integer brojIzgubljenihLopti;
     
-    @ManyToOne
-    private Utakmica utakmice;
+ 
     
     @ManyToOne
     private Igrac igraci;
     
+    @ManyToOne
+    private Utakmica utakmice;
 
 
     public Integer getBrojPoena() {
@@ -78,6 +79,14 @@ public class Statistika extends Entitet{
         this.brojIzgubljenihLopti = brojIzgubljenihLopti;
     }
 
+    public Igrac getIgraci() {
+        return igraci;
+    }
+
+    public void setIgraci(Igrac igraci) {
+        this.igraci = igraci;
+    }
+
     public Utakmica getUtakmice() {
         return utakmice;
     }
@@ -86,5 +95,5 @@ public class Statistika extends Entitet{
         this.utakmice = utakmice;
     }
 
-  
+    
 }

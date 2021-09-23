@@ -16,24 +16,16 @@ import javax.persistence.Entity;
 @Entity
 public class Igrac extends Osoba{
     
-    private BigDecimal placa;
-    private Date ugovorPotpisan;
+    private Integer placa;
 
-    public BigDecimal getPlaca() {
+
+    public Integer getPlaca() {
         return placa;
     }
 
-    public void setPlaca(BigDecimal placa) {
+    public void setPlaca(Integer placa) {
         this.placa = placa;
     }
 
-    public Date getUgovorPotpisan() {
-        return ugovorPotpisan;
-    }
-
-    public void setUgovorPotpisan(Date ugovorPotpisan) {
-        this.ugovorPotpisan = ugovorPotpisan;
-    }
-    
     
 }

@@ -5,6 +5,7 @@
  */
 package projekt.zavrsnirad;
 
+import projekt.zavrsnirad.util.HibernateSessionPocetniInsert;
 import projekt.zavrsnirad.util.HibernateUtil;
 
 /**
@@ -14,7 +15,8 @@ import projekt.zavrsnirad.util.HibernateUtil;
 public class Start {
     
     public static void main(String[] args) {
-        HibernateUtil.getSession();
+        //HibernateUtil.getSession();
+        HibernateSessionPocetniInsert.unosUBazu();
         
         
     }

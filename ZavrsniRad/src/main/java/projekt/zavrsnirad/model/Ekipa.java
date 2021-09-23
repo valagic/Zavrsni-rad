@@ -18,6 +18,8 @@ public class Ekipa extends Entitet{
 
     private String nazivDomaceEkipe;
     private String nazivGostujuceEkipe;
+    private Integer rezultatDomaceEkipe;
+    private Integer rezultatGostujuceEkipe;
     
     @ManyToOne
     private Trener treneri;
@@ -56,6 +58,22 @@ public class Ekipa extends Entitet{
 
     public void setNazivGostujuceEkipe(String nazivGostujuceEkipe) {
         this.nazivGostujuceEkipe = nazivGostujuceEkipe;
+    }
+
+    public Integer getRezultatDomaceEkipe() {
+        return rezultatDomaceEkipe;
+    }
+
+    public void setRezultatDomaceEkipe(Integer rezultatDomaceEkipe) {
+        this.rezultatDomaceEkipe = rezultatDomaceEkipe;
+    }
+
+    public Integer getRezultatGostujuceEkipe() {
+        return rezultatGostujuceEkipe;
+    }
+
+    public void setRezultatGostujuceEkipe(Integer rezultatGostujuceEkipe) {
+        this.rezultatGostujuceEkipe = rezultatGostujuceEkipe;
     }
 
     

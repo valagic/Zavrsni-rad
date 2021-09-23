@@ -19,8 +19,7 @@ public class Utakmica extends Entitet{
     
     private String nazivDvorane;
     private Date DatumPocetka;
-    private Integer rezultatDomaceEkipe;
-    private Integer rezultatGostujuceEkipe;
+
 
     @ManyToOne
     private Ekipa ekipe;
@@ -40,22 +39,6 @@ public class Utakmica extends Entitet{
 
     public void setDatumPocetka(Date DatumPocetka) {
         this.DatumPocetka = DatumPocetka;
-    }
-
-    public Integer getRezultatDomaceEkipe() {
-        return rezultatDomaceEkipe;
-    }
-
-    public void setRezultatDomaceEkipe(Integer rezultatDomaceEkipe) {
-        this.rezultatDomaceEkipe = rezultatDomaceEkipe;
-    }
-
-    public Integer getRezultatGostujuceEkipe() {
-        return rezultatGostujuceEkipe;
-    }
-
-    public void setRezultatGostujuceEkipe(Integer rezultatGostujuceEkipe) {
-        this.rezultatGostujuceEkipe = rezultatGostujuceEkipe;
     }
 
     public Ekipa getEkipe() {

@@ -25,6 +25,9 @@ public class Statistika extends Entitet{
     @ManyToOne
     private Utakmica utakmice;
     
+    @ManyToOne
+    private Igrac igraci;
+    
 
 
     public Integer getBrojPoena() {

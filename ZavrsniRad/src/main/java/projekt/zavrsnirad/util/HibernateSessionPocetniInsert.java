@@ -32,13 +32,14 @@ public class HibernateSessionPocetniInsert {
         Igrac i = new Igrac();
         i.setIme("Luka");
         i.setPrezime("Doncic");
-        i.setPlaca(20000000);
+        i.setNazivEkipaZaKojuIgra("Dallas Mavericks");
 
         s.save(i);
         
         Trener t = new Trener();
         t.setIme("Pero");
         t.setPrezime("Perić");
+        t.setNazivEkipeKojuTrenira("Dallas Mavericks");
         t.setBrojPobjedaUKarijeri(987);
         t.setBrojPorazaUKarijeri(678);
         s.save(t);

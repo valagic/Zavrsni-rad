@@ -14,9 +14,20 @@ import javax.persistence.Entity;
 @Entity
 public class Trener extends Osoba{
 
+    private String nazivEkipeKojuTrenira;
     private Integer brojPobjedaUKarijeri;
     private Integer brojPorazaUKarijeri;
 
+    public String getNazivEkipeKojuTrenira() {
+        return nazivEkipeKojuTrenira;
+    }
+
+    public void setNazivEkipeKojuTrenira(String nazivEkipeKojuTrenira) {
+        this.nazivEkipeKojuTrenira = nazivEkipeKojuTrenira;
+    }
+
+    
+    
     public Integer getBrojPobjedaUKarijeri() {
         return brojPobjedaUKarijeri;
     }

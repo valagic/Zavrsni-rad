@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Ekipa extends Entitet{
 
-    private String nazivEkipe;
+    private String naziv;
     
     
     @ManyToOne
@@ -27,11 +27,11 @@ public class Ekipa extends Entitet{
     
  
     public String getNazivEkipe() {
-        return nazivEkipe;
+        return naziv;
     }
 
     public void setNazivEkipe(String nazivEkipe) {
-        this.nazivEkipe = nazivEkipe;
+        this.naziv = nazivEkipe;
     }
 
     public Trener getTreneri() {

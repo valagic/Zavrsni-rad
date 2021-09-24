@@ -16,16 +16,16 @@ import javax.persistence.Entity;
 @Entity
 public class Igrac extends Osoba{
     
-    private Integer placa;
+    private String nazivEkipaZaKojuIgra;
 
-
-    public Integer getPlaca() {
-        return placa;
+    public String getNazivEkipaZaKojuIgra() {
+        return nazivEkipaZaKojuIgra;
     }
 
-    public void setPlaca(Integer placa) {
-        this.placa = placa;
+    public void setNazivEkipaZaKojuIgra(String nazivEkipaZaKojuIgra) {
+        this.nazivEkipaZaKojuIgra = nazivEkipaZaKojuIgra;
     }
-
+    
+    
     
 }

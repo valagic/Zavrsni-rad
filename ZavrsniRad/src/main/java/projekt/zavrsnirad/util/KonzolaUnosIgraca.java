@@ -22,7 +22,7 @@ public class KonzolaUnosIgraca {
         Igrac i = new Igrac();
         oi.setEntitet(i); 
         while(true){
-            System.out.println("Unesi naziv igraca: ");
+            System.out.println("Unesi ime igraca: ");
             i.setIme(ulaz.nextLine());
             try {
                 oi.create();

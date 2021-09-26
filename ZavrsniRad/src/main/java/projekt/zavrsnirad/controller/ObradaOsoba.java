@@ -6,6 +6,7 @@
 package projekt.zavrsnirad.controller;
 
 import projekt.zavrsnirad.model.Osoba;
+import projekt.zavrsnirad.util.NbaExepction;
 
 /**
  *
@@ -13,5 +14,7 @@ import projekt.zavrsnirad.model.Osoba;
  */
 public abstract class ObradaOsoba<T extends Osoba> extends Obrada<T>{
     
-        
+
+    
+    
 }

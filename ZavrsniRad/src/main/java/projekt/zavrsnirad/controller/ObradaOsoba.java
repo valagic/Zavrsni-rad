@@ -14,7 +14,22 @@ import projekt.zavrsnirad.util.NbaExepction;
  */
 public abstract class ObradaOsoba<T extends Osoba> extends Obrada<T>{
     
+    @Override
+    protected void kontrolaCreate() throws NbaExepction {
+        kontrolaIme();
+        kontrolaPrezime();
+        
+        }
+    
+    private void kontrolaIme() throws NbaExepction{
+        if(entitet.getIme() == null || entitet.getIme().trim().length() == 0) {
+            throw new NbaExepction("Molim unesite ime");
+        }}
 
+    private void kontrolaPrezime() throws NbaExepction{
+        if(entitet.getPrezime() == null || entitet.getPrezime().trim().length() == 0) {
+            throw new NbaExepction("Molim unesite prezime");
+        }}
     
     
 }

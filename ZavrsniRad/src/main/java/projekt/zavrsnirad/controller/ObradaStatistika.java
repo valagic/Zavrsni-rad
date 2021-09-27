@@ -73,4 +73,4 @@ public class ObradaStatistika extends Obrada<Statistika>{
  
         
     
-}
+

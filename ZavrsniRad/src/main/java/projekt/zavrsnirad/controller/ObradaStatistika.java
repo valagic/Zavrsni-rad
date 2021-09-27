@@ -3,7 +3,6 @@ package projekt.zavrsnirad.controller;
 
 
 import java.util.List;
-import java.util.regex.Pattern;
 import projekt.zavrsnirad.model.Statistika;
 import projekt.zavrsnirad.util.NbaExepction;
 
@@ -19,12 +18,12 @@ public class ObradaStatistika extends Obrada<Statistika>{
 
     @Override
     protected void kontrolaCreate() throws NbaExepction {
-        kontrolaBrojPoena();
-        kontrolaBrojAsistencija();
-        kontrolaBrojSkokova();
-        kontrolaBrojUkradenihLopti();
-        kontrolaBrojBlokiranihSuteva();
-        kontrolaBrojIzgubljenihLopti();
+        kontrolaBrojPoena(String.valueOf(entitet.getBrojPoena()));
+        kontrolaBrojAsistencija(String.valueOf(entitet.getBrojAsistencija()));
+        kontrolaBrojSkokova(String.valueOf(entitet.getBrojSkokova()));
+        kontrolaBrojUkradenihLopti(String.valueOf(entitet.getBrojUkradenihLopti()));
+        kontrolaBrojBlokiranihSuteva(String.valueOf(entitet.getBrojBlokiranihSuteva()));
+        kontrolaBrojIzgubljenihLopti(String.valueOf(entitet.getBrojIzgubljenihLopti()));
         }
 
     @Override
@@ -35,39 +34,41 @@ public class ObradaStatistika extends Obrada<Statistika>{
     protected void kontrolaDelete() throws NbaExepction {
         }
 
-    private void kontrolaBrojPoena() {
-        kontrolaSamoBrojevi(String str);
-        }
+    private void kontrolaBrojPoena(String s) throws NbaExepction{
+       kontrolaSamoBrojevi(s);
+       }
 
-    private void kontrolaBrojAsistencija() {
-        
-        }
-
-    private void kontrolaBrojSkokova() {
-        
-        }
-
-    private void kontrolaBrojUkradenihLopti() {
-        
-        }
-
-    private void kontrolaBrojBlokiranihSuteva() {
-        
-        }
-
-    private void kontrolaBrojIzgubljenihLopti() {
-        
-        }
-
-
-    private void kontrolaSamoBrojevi(String str) throws NbaExepction{
-        try {
-               int integ = Integer.parseInt(str);
+    private void kontrolaSamoBrojevi(String s) throws NbaExepction{
+         try {
+               int integ = Integer.parseInt(s);
        } catch (Exception e) {
                throw new NbaExepction("Molim unesi broj");
        }      
- } 
     }
+        
+
+    private void kontrolaBrojAsistencija(String s) throws NbaExepction {
+        kontrolaSamoBrojevi(s);
+        }
+
+    private void kontrolaBrojSkokova(String s) throws NbaExepction {
+        kontrolaSamoBrojevi(s);
+        }
+
+    private void kontrolaBrojUkradenihLopti(String s) throws NbaExepction {
+        kontrolaSamoBrojevi(s);
+        }
+
+    private void kontrolaBrojBlokiranihSuteva(String s) throws NbaExepction {
+        kontrolaSamoBrojevi(s);
+        }
+
+    private void kontrolaBrojIzgubljenihLopti(String s) throws NbaExepction {
+        kontrolaSamoBrojevi(s);
+        }
+
+ } 
+        
     
 
 

@@ -36,7 +36,7 @@ public class ObradaStatistika extends Obrada<Statistika>{
         }
 
     private void kontrolaBrojPoena() {
-        //kontrolaSamoBrojevi();
+        kontrolaSamoBrojevi(String str);
         }
 
     private void kontrolaBrojAsistencija() {
@@ -59,13 +59,14 @@ public class ObradaStatistika extends Obrada<Statistika>{
         
         }
 
-    /*private void kontrolaSamoBrojevi(String str) throws NbaExepction{
-        
-        for (int i = 0; i < str.length(); i++) {
-      if (!Character.isDigit(str.charAt(i)))
-        throw new NbaExepction("Molim unesi broj");
-    }*/
-   
+
+    private void kontrolaSamoBrojevi(String str) throws NbaExepction{
+        try {
+               int integ = Integer.parseInt(str);
+       } catch (Exception e) {
+               throw new NbaExepction("Molim unesi broj");
+       }      
+ } 
     }
     
 

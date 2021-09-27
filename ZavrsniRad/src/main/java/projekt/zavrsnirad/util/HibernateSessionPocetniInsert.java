@@ -32,7 +32,7 @@ public class HibernateSessionPocetniInsert {
         Igrac i = new Igrac();
         i.setIme("Luka");
         i.setPrezime("Doncic");
-        i.setNazivEkipaZaKojuIgra("Dallas Mavericks");
+        i.setNazivEkipeZaKojuIgra("Dallas Mavericks");
 
         s.save(i);
         
@@ -46,7 +46,7 @@ public class HibernateSessionPocetniInsert {
         
         Ekipa e = new Ekipa();
         e.setNazivEkipe("Dallas Mavericks");
-        e.setIgraci(i);
+       
         e.setTreneri(t);
 
         s.save(e);
@@ -55,7 +55,7 @@ public class HibernateSessionPocetniInsert {
  
         u.setDatumPocetka(new Date());
         u.setNazivDvorane("Gradski vrt");
-        u.setEkipe(e);
+     
        
         s.save(u);
         
@@ -67,7 +67,7 @@ public class HibernateSessionPocetniInsert {
         ss.setBrojBlokiranihSuteva(1);
         ss.setBrojIzgubljenihLopti(0);
         ss.setIgraci(i);
-        //ss.setUtakmice(u);
+        
         s.save(ss);
        
         s.getTransaction().commit();

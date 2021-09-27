@@ -17,14 +17,26 @@ import javax.persistence.Entity;
 public class Igrac extends Osoba{
     
     private String nazivEkipeZaKojuIgra;
+    
+    private Ekipa ekipa;
 
-    public String getNazivEkipaZaKojuIgra() {
+    public String getNazivEkipeZaKojuIgra() {
         return nazivEkipeZaKojuIgra;
     }
 
-    public void setNazivEkipaZaKojuIgra(String nazivEkipaZaKojuIgra) {
-        this.nazivEkipeZaKojuIgra = nazivEkipaZaKojuIgra;
+    public void setNazivEkipeZaKojuIgra(String nazivEkipeZaKojuIgra) {
+        this.nazivEkipeZaKojuIgra = nazivEkipeZaKojuIgra;
     }
+
+    public Ekipa getEkipa() {
+        return ekipa;
+    }
+
+    public void setEkipa(Ekipa ekipa) {
+        this.ekipa = ekipa;
+    }
+
+  
     
     
     

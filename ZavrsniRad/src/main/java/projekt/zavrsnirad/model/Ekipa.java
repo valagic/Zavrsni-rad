@@ -22,8 +22,7 @@ public class Ekipa extends Entitet{
     @ManyToOne
     private Trener treneri;
     
-    @ManyToOne
-    private Igrac igraci;
+   
     
  
     public String getNazivEkipe() {
@@ -40,14 +39,6 @@ public class Ekipa extends Entitet{
 
     public void setTreneri(Trener treneri) {
         this.treneri = treneri;
-    }
-
-    public Igrac getIgraci() {
-        return igraci;
-    }
-
-    public void setIgraci(Igrac igraci) {
-        this.igraci = igraci;
     }
 
     

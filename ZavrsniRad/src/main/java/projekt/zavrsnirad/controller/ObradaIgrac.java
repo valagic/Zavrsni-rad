@@ -39,7 +39,7 @@ public class ObradaIgrac extends ObradaOsoba<Igrac>{
         }
 
     private void kontrolaNazivEkipe() throws NbaExepction{
-        if(entitet.getNazivEkipaZaKojuIgra() == null || entitet.getPrezime().trim().length() == 0) {
+        if(entitet.getNazivEkipeZaKojuIgra()== null || entitet.getPrezime().trim().length() == 0) {
             throw new NbaExepction("Unesite ispravni naziv ekipe");
         }}
     

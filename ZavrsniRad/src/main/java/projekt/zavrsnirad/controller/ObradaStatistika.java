@@ -35,7 +35,7 @@ public class ObradaStatistika extends Obrada<Statistika>{
         }
 
     private void kontrolaBrojPoena(String s) throws NbaExepction{
-       kontrolaSamoBrojevi(s);
+      // kontrolaSamoBrojevi(s);
        }
 
     private void kontrolaSamoBrojevi(String s) throws NbaExepction{

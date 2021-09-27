@@ -22,12 +22,12 @@ public class Utakmica extends Entitet{
 
 
     @ManyToOne
-    private Ekipa ekipe;
+    private Ekipa domaca;
     
-    
-   
+    @ManyToOne
+    private Ekipa gost;
+
     public String getNazivDvorane() {
-        
         return nazivDvorane;
     }
 
@@ -43,15 +43,22 @@ public class Utakmica extends Entitet{
         this.DatumPocetka = DatumPocetka;
     }
 
-    public Ekipa getEkipe() {
-        return ekipe;
+    public Ekipa getDomaca() {
+        return domaca;
     }
 
-    public void setEkipe(Ekipa ekipe) {
-        this.ekipe = ekipe;
+    public void setDomaca(Ekipa domaca) {
+        this.domaca = domaca;
     }
 
-   
-  
+    public Ekipa getGost() {
+        return gost;
+    }
+
+    public void setGost(Ekipa gost) {
+        this.gost = gost;
+    }
+    
+    
 
 }

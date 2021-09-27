@@ -25,10 +25,10 @@ public class Statistika extends Entitet{
  
     
     @ManyToOne
-    private Igrac igraci;
+    private Igrac igrac;
     
     @ManyToOne
-    private Utakmica utakmice;
+    private Utakmica utakmica;
 
 
     public Integer getBrojPoena() {
@@ -80,19 +80,19 @@ public class Statistika extends Entitet{
     }
 
     public Igrac getIgraci() {
-        return igraci;
+        return igrac;
     }
 
     public void setIgraci(Igrac igraci) {
-        this.igraci = igraci;
+        this.igrac = igraci;
     }
 
     public Utakmica getUtakmice() {
-        return utakmice;
+        return utakmica;
     }
 
     public void setUtakmice(Utakmica utakmice) {
-        this.utakmice = utakmice;
+        this.utakmica = utakmice;
     }
 
     

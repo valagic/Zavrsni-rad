@@ -22,9 +22,8 @@ public class ObradaEkipa extends Obrada<Ekipa>{
 
     @Override
     protected void kontrolaCreate() throws NbaExepction {
-        if(entitet.getNazivEkipe() == null || entitet.getNazivEkipe().trim().length() == 0)
-        {
-            
+        if(entitet.getNazivEkipe() == null || entitet.getNazivEkipe().trim().length() == 0){
+            throw new NbaExepction("Molim unesite naziv ekipe");
         }}
 
     @Override

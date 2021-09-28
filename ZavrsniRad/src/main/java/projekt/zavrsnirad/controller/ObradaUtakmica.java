@@ -27,7 +27,7 @@ public class ObradaUtakmica extends Obrada<Utakmica>{
 
     @Override
     protected void kontrolaUpdate() throws NbaExepction {
-        
+        kontrolaNaziv();
         }
 
     @Override

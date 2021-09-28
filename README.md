@@ -1,3 +1,4 @@
 # Zavrsni-rad - ERA DIJAGRAM
+![eraDijagram](https://user-images.githubusercontent.com/59015187/135159231-55da8911-bde1-4102-be04-8af831fce56d.png)
 
-![eraDijagram](https://user-images.githubusercontent.com/59015187/134978378-4c59ca8a-fb70-4b0a-9431-34e66bdd903f.png)
+

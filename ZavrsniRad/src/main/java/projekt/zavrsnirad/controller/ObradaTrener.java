@@ -44,10 +44,20 @@ public class ObradaTrener extends ObradaOsoba<Trener>{
             throw new NbaExepction("Molim unesite ime");
         }}
 
-    private void kontrolaBrojPobjedaUKarijeri() throws NbaExepction{
+    private void kontrolaBrojPobjedaUKarijeri(String s) throws NbaExepction{
+        kontrolaSamoBrojevi(s);
         }
 
-    private void kontrolaBrojPorazaUKarijeri() throws NbaExepction{
+    private void kontrolaBrojPorazaUKarijeri(String s) throws NbaExepction{
+        kontrolaSamoBrojevi(s);
         }
+
+    private void kontrolaSamoBrojevi(String s) throws NbaExepction{
+         try {
+               int integ = Integer.parseInt(s);
+       } catch (Exception e) {
+               throw new NbaExepction("Molim unesi broj");
+       }      
+    }
     
 }

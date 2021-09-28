@@ -22,7 +22,7 @@ public class ObradaUtakmica extends Obrada<Utakmica>{
 
     @Override
     protected void kontrolaCreate() throws NbaExepction {
-        
+        kontrolaNaziv();
         }
 
     @Override
@@ -33,6 +33,12 @@ public class ObradaUtakmica extends Obrada<Utakmica>{
     @Override
     protected void kontrolaDelete() throws NbaExepction {
         
+        }
+
+    private void kontrolaNaziv() throws NbaExepction{
+        if(entitet.getNazivDvorane() == null || entitet.getNazivDvorane().trim().length() == 0) {
+            throw new NbaExepction("Molim unesi ime dvorane");
+        }
         }
     
     

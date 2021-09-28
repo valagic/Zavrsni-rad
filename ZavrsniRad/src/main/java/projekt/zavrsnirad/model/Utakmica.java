@@ -22,7 +22,7 @@ public class Utakmica extends Entitet{
 
 
     @ManyToOne
-    private Ekipa domaca;
+    private Ekipa domacin;
     
     @ManyToOne
     private Ekipa gost;
@@ -44,11 +44,11 @@ public class Utakmica extends Entitet{
     }
 
     public Ekipa getDomaca() {
-        return domaca;
+        return domacin;
     }
 
     public void setDomaca(Ekipa domaca) {
-        this.domaca = domaca;
+        this.domacin = domaca;
     }
 
     public Ekipa getGost() {

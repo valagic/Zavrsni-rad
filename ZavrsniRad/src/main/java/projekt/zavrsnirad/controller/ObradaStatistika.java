@@ -73,10 +73,16 @@ public class ObradaStatistika extends Obrada<Statistika>{
 
     private void kontrolaBrojBlokiranihSuteva(String s) throws NbaExepction {
         kontrolaSamoBrojevi(s);
+        if(entitet.getBrojBlokiranihSuteva()<0 || entitet.getBrojBlokiranihSuteva()>30){
+            throw new NbaExepction("Uneseni broj ne moze biti manji od 0 i veci od 30");
+        }
         }
 
     private void kontrolaBrojIzgubljenihLopti(String s) throws NbaExepction {
         kontrolaSamoBrojevi(s);
+        if(entitet.getBrojIzgubljenihLopti()<0 || entitet.getBrojIzgubljenihLopti()>35){
+            throw new NbaExepction("Uneseni broj ne moze biti manji od 0 i veci od 35");
+        }
         }
 
  } 

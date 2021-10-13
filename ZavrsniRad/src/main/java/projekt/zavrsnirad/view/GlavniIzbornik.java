@@ -32,10 +32,10 @@ public class GlavniIzbornik extends javax.swing.JFrame {
         jIzbornik = new javax.swing.JMenu();
         jIgrac = new javax.swing.JMenuItem();
         jTrener = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        jEkipa = new javax.swing.JMenuItem();
+        jUtakmica = new javax.swing.JMenuItem();
+        jStatistika = new javax.swing.JMenuItem();
+        jIzlaz = new javax.swing.JMenuItem();
 
         jMenu1.setText("jMenu1");
 
@@ -44,22 +44,52 @@ public class GlavniIzbornik extends javax.swing.JFrame {
         jIzbornik.setText("Izbornik");
 
         jIgrac.setText("Igrac");
+        jIgrac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jIgracActionPerformed(evt);
+            }
+        });
         jIzbornik.add(jIgrac);
 
         jTrener.setText("Trener");
+        jTrener.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTrenerActionPerformed(evt);
+            }
+        });
         jIzbornik.add(jTrener);
 
-        jMenuItem3.setText("Ekipa");
-        jIzbornik.add(jMenuItem3);
+        jEkipa.setText("Ekipa");
+        jEkipa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jEkipaActionPerformed(evt);
+            }
+        });
+        jIzbornik.add(jEkipa);
 
-        jMenuItem4.setText("Utakmica");
-        jIzbornik.add(jMenuItem4);
+        jUtakmica.setText("Utakmica");
+        jUtakmica.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jUtakmicaActionPerformed(evt);
+            }
+        });
+        jIzbornik.add(jUtakmica);
 
-        jMenuItem5.setText("Statistika");
-        jIzbornik.add(jMenuItem5);
+        jStatistika.setText("Statistika");
+        jStatistika.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jStatistikaActionPerformed(evt);
+            }
+        });
+        jIzbornik.add(jStatistika);
 
-        jMenuItem6.setText("Izlaz iz programa");
-        jIzbornik.add(jMenuItem6);
+        jIzlaz.setText("Izlaz iz programa");
+        jIzlaz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jIzlazActionPerformed(evt);
+            }
+        });
+        jIzbornik.add(jIzlaz);
 
         jMenuBar1.add(jIzbornik);
 
@@ -79,6 +109,30 @@ public class GlavniIzbornik extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jIgracActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jIgracActionPerformed
+        new ProzorIgrac().setVisible(true);
+    }//GEN-LAST:event_jIgracActionPerformed
+
+    private void jTrenerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTrenerActionPerformed
+        new ProzorTrener().setVisible(true);
+    }//GEN-LAST:event_jTrenerActionPerformed
+
+    private void jEkipaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEkipaActionPerformed
+        new ProzorEkipa().setVisible(true);
+    }//GEN-LAST:event_jEkipaActionPerformed
+
+    private void jUtakmicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jUtakmicaActionPerformed
+        new ProzorUtakmica().setVisible(true);
+    }//GEN-LAST:event_jUtakmicaActionPerformed
+
+    private void jStatistikaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jStatistikaActionPerformed
+        new ProzorStatistika().setVisible(true);
+    }//GEN-LAST:event_jStatistikaActionPerformed
+
+    private void jIzlazActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jIzlazActionPerformed
+        dispose();
+    }//GEN-LAST:event_jIzlazActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,14 +170,14 @@ public class GlavniIzbornik extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem jEkipa;
     private javax.swing.JMenuItem jIgrac;
     private javax.swing.JMenu jIzbornik;
+    private javax.swing.JMenuItem jIzlaz;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jStatistika;
     private javax.swing.JMenuItem jTrener;
+    private javax.swing.JMenuItem jUtakmica;
     // End of variables declaration//GEN-END:variables
 }

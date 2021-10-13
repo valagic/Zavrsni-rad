@@ -5,18 +5,28 @@
  */
 package projekt.zavrsnirad.view;
 
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import projekt.zavrsnirad.controller.ObradaIgrac;
+import projekt.zavrsnirad.model.Igrac;
+import projekt.zavrsnirad.util.NbaExepction;
+
 /**
  *
  * @author valagic
  */
-public class ProzorIgrac extends javax.swing.JFrame {
+public class ProzorIgrac extends javax.swing.JFrame implements ProzorSucelja{
+    
+    private ObradaIgrac obrada;
 
     /**
      * Creates new form ProzorIgrac
      */
     public ProzorIgrac() {
         initComponents();
-    }
+        obrada = new ObradaIgrac();
+        postavke();
+        ucitaj();    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -31,12 +41,49 @@ public class ProzorIgrac extends javax.swing.JFrame {
         lstEntiteti = new javax.swing.JList<>();
         lblIme = new javax.swing.JLabel();
         txtIme = new javax.swing.JTextField();
+        lvlPrezime = new javax.swing.JLabel();
+        txtPrezime = new javax.swing.JTextField();
+        lvlNazivEkipe = new javax.swing.JLabel();
+        txtNazivEkipe = new javax.swing.JTextField();
+        btnDodaj = new javax.swing.JButton();
+        btnPromjeni = new javax.swing.JButton();
+        btnObrisi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        lstEntiteti.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstEntitetiValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(lstEntiteti);
 
         lblIme.setText("Ime");
+
+        lvlPrezime.setText("Prezime");
+
+        lvlNazivEkipe.setText("Naziv ekipe");
+
+        btnDodaj.setText("Dodaj");
+        btnDodaj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDodajActionPerformed(evt);
+            }
+        });
+
+        btnPromjeni.setText("Promjeni");
+        btnPromjeni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPromjeniActionPerformed(evt);
+            }
+        });
+
+        btnObrisi.setText("Obriši");
+        btnObrisi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnObrisiActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -45,11 +92,24 @@ public class ProzorIgrac extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblIme, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtIme, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(100, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblIme, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtIme)
+                            .addComponent(lvlPrezime)
+                            .addComponent(txtPrezime, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
+                            .addComponent(lvlNazivEkipe)
+                            .addComponent(txtNazivEkipe)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnDodaj)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnPromjeni)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnObrisi)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -59,13 +119,69 @@ public class ProzorIgrac extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblIme)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtIme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtIme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lvlPrezime)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtPrezime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lvlNazivEkipe)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNazivEkipe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnDodaj)
+                            .addComponent(btnPromjeni)
+                            .addComponent(btnObrisi)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lstEntitetiValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstEntitetiValueChanged
+       if(evt.getValueIsAdjusting() || lstEntiteti.getSelectedValue()==null){
+            return;
+        }
+       obrada.setEntitet(lstEntiteti.getSelectedValue());
+       var e = obrada.getEntitet();
+       txtIme.setText(e.getIme());
+       txtPrezime.setText(e.getPrezime());
+       txtNazivEkipe.setText(e.getNazivEkipeZaKojuIgra());
+       
+    }//GEN-LAST:event_lstEntitetiValueChanged
+
+    private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
+        obrada.setEntitet(new Igrac());
+        postaviVrijednostiUEntitet();
+
+        try {
+            obrada.create();
+            ucitaj();
+        } catch (NbaExepction ex) {
+            JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
+        }
+    }//GEN-LAST:event_btnDodajActionPerformed
+
+    private void btnPromjeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromjeniActionPerformed
+        postaviVrijednostiUEntitet();
+        try {
+            obrada.update();
+            ucitaj();
+        } catch (NbaExepction ex) {
+            JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
+        }
+    }//GEN-LAST:event_btnPromjeniActionPerformed
+
+    private void btnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiActionPerformed
+        try {
+            obrada.delete();
+            ucitaj();
+        } catch (NbaExepction ex) {
+            JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
+        }
+    }//GEN-LAST:event_btnObrisiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -103,9 +219,36 @@ public class ProzorIgrac extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDodaj;
+    private javax.swing.JButton btnObrisi;
+    private javax.swing.JButton btnPromjeni;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblIme;
-    private javax.swing.JList<String> lstEntiteti;
+    private javax.swing.JList<Igrac> lstEntiteti;
+    private javax.swing.JLabel lvlNazivEkipe;
+    private javax.swing.JLabel lvlPrezime;
     private javax.swing.JTextField txtIme;
+    private javax.swing.JTextField txtNazivEkipe;
+    private javax.swing.JTextField txtPrezime;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void postaviVrijednostiUEntitet() {
+       var e = obrada.getEntitet();
+       e.setIme(txtIme.getText());
+       e.setPrezime(txtPrezime.getText());
+       e.setNazivEkipeZaKojuIgra(txtNazivEkipe.getText());
+    }
+
+    @Override
+    public void postavke() {
+        //setTitle(Aplikacija.getNaslov("Igraci"));
+    }
+
+    @Override
+    public void ucitaj() {
+        DefaultListModel<Igrac> m = new DefaultListModel<>();
+        obrada.read().forEach(s->{m.addElement(s);});
+        lstEntiteti.setModel(m);
+    }
 }

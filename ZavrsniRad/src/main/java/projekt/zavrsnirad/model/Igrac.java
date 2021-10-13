@@ -38,6 +38,11 @@ public class Igrac extends Osoba{
         this.ekipa = ekipa;
     }
 
+    @Override
+    public String toString() {
+        return getIme() + " " + getPrezime() + " " + getNazivEkipeZaKojuIgra();
+    }
+
   
     
     

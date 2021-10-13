@@ -24,9 +24,7 @@ public class ObradaIgrac extends ObradaOsoba<Igrac>{
     @Override
     protected void kontrolaCreate() throws NbaExepction {
         super.kontrolaCreate(); // s time odradimo sve kontrole vezane za osobu
-        //kontrolaIme();
-        //kontrolaPrezime();
-        //kontrolaNazivEkipe();
+        kontrolaNazivEkipe();
         
         }
 
@@ -39,7 +37,7 @@ public class ObradaIgrac extends ObradaOsoba<Igrac>{
         }
 
     private void kontrolaNazivEkipe() throws NbaExepction{
-        if(entitet.getNazivEkipeZaKojuIgra()== null || entitet.getPrezime().trim().length() == 0) {
+        if(entitet.getNazivEkipeZaKojuIgra()== null || entitet.getNazivEkipeZaKojuIgra().trim().length() == 0) {
             throw new NbaExepction("Unesite ispravni naziv ekipe");
         }}
     

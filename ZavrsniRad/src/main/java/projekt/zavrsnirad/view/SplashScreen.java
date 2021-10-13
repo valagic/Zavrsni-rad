@@ -5,6 +5,10 @@
  */
 package projekt.zavrsnirad.view;
 
+import javax.swing.JOptionPane;
+import org.hibernate.Session;
+import projekt.zavrsnirad.util.HibernateUtil;
+
 /**
  *
  * @author valagic
@@ -16,7 +20,28 @@ public class SplashScreen extends javax.swing.JFrame {
      */
     public SplashScreen() {
         initComponents();
+        
+        Ucitanje ucitanje = new Ucitanje();
+        ucitanje.start();
+             
+        
     }
+    
+    private class Ucitanje extends Thread{
+
+        @Override
+        public void run() {
+             Session s = HibernateUtil.getSession();
+            if(s.getMetamodel().getEntities().size()>0){
+                new GlavniIzbornik().setVisible(true);
+                dispose();
+            }else{
+                JOptionPane.showMessageDialog(getRootPane(), "Problem s bazom podataka");
+            }
+        }
+        
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,11 +60,17 @@ public class SplashScreen extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addComponent(jLabel1)
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(61, 61, 61)
+                .addComponent(jLabel1)
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         pack();

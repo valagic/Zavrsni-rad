@@ -5,17 +5,29 @@
  */
 package projekt.zavrsnirad.view;
 
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.transaction.Transactional;
+import projekt.zavrsnirad.controller.ObradaTrener;
+import projekt.zavrsnirad.model.Igrac;
+import projekt.zavrsnirad.model.Trener;
+import projekt.zavrsnirad.util.NbaExepction;
+
 /**
  *
  * @author valagic
  */
-public class ProzorTrener extends javax.swing.JFrame {
+public class ProzorTrener extends javax.swing.JFrame implements ProzorSucelja{
 
+    private ObradaTrener obrada;
     /**
      * Creates new form ProzorTrener
      */
     public ProzorTrener() {
         initComponents();
+        obrada = new ObradaTrener();
+        postavke();
+        ucitaj();
     }
 
     /**
@@ -27,57 +39,185 @@ public class ProzorTrener extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lstEntiteti = new javax.swing.JList<>();
+        lblIme = new javax.swing.JLabel();
+        txtIme = new javax.swing.JTextField();
+        lblPrezime = new javax.swing.JLabel();
+        txtPrezime = new javax.swing.JTextField();
+        lblImeEkipe = new javax.swing.JLabel();
+        btnDodaj = new javax.swing.JButton();
+        btnPromjeni = new javax.swing.JButton();
+        btnObriši = new javax.swing.JButton();
+        txtNazivEkipe = new javax.swing.JTextField();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        lstEntiteti.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstEntitetiValueChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(lstEntiteti);
+
+        lblIme.setText("Ime");
+
+        lblPrezime.setText("Prezime");
+
+        lblImeEkipe.setText("Naziv ekipe");
+
+        btnDodaj.setText("Dodaj");
+        btnDodaj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDodajActionPerformed(evt);
+            }
+        });
+
+        btnPromjeni.setText("Promjeni");
+        btnPromjeni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPromjeniActionPerformed(evt);
+            }
+        });
+
+        btnObriši.setText("Obriši");
+        btnObriši.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnObrišiActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnDodaj)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnPromjeni)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnObriši))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(lblIme)
+                        .addComponent(txtIme)
+                        .addComponent(lblImeEkipe)
+                        .addComponent(txtPrezime)
+                        .addComponent(lblPrezime)
+                        .addComponent(txtNazivEkipe, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblIme)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtIme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblPrezime)
+                        .addGap(7, 7, 7)
+                        .addComponent(txtPrezime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblImeEkipe)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtNazivEkipe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnDodaj)
+                            .addComponent(btnPromjeni)
+                            .addComponent(btnObriši))
+                        .addGap(0, 62, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lstEntitetiValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstEntitetiValueChanged
+        if(evt.getValueIsAdjusting() || lstEntiteti.getSelectedValue()==null){
+            return;
+        }
+        obrada.setEntitet(lstEntiteti.getSelectedValue());
+        var e = obrada.getEntitet();
+        txtIme.setText(e.getIme());
+        txtPrezime.setText(e.getPrezime());
+        txtNazivEkipe.setText(e.getNazivEkipeKojuTrenira());
+    }//GEN-LAST:event_lstEntitetiValueChanged
+
+    private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
+        obrada.setEntitet(new Trener());
+        postaviVrijednostiUEntitet();
+
+        try {
+            obrada.create();
+            ucitaj();
+        } catch (NbaExepction ex) {
+            JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
+        }
+    }//GEN-LAST:event_btnDodajActionPerformed
+
+    private void btnPromjeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromjeniActionPerformed
+        postaviVrijednostiUEntitet();
+        try {
+            obrada.update();
+            ucitaj();
+        } catch (NbaExepction ex) {
+            JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
+        }
+    }//GEN-LAST:event_btnPromjeniActionPerformed
+
+    private void btnObrišiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrišiActionPerformed
+         try {
+            obrada.delete();
+            ucitaj();
+        } catch (NbaExepction ex) {
+            JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
+        }
+    }//GEN-LAST:event_btnObrišiActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ProzorTrener.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ProzorTrener.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ProzorTrener.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ProzorTrener.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ProzorTrener().setVisible(true);
-            }
-        });
+    @Override
+    public void postavke() {
+        //setTitle(Aplikacija.getNaslov("Igraci"));
     }
 
+    @Override
+    public void ucitaj() {
+        DefaultListModel<Trener> m = new DefaultListModel<>();
+        obrada.read().forEach(s->{m.addElement(s);});
+        lstEntiteti.setModel(m);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDodaj;
+    private javax.swing.JButton btnObriši;
+    private javax.swing.JButton btnPromjeni;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblIme;
+    private javax.swing.JLabel lblImeEkipe;
+    private javax.swing.JLabel lblPrezime;
+    private javax.swing.JList<Trener> lstEntiteti;
+    private javax.swing.JTextField txtIme;
+    private javax.swing.JTextField txtNazivEkipe;
+    private javax.swing.JTextField txtPrezime;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void postaviVrijednostiUEntitet() {
+       var e = obrada.getEntitet();
+       e.setIme(txtIme.getText());
+       e.setPrezime(txtPrezime.getText());
+       e.setNazivEkipeKojuTrenira(txtNazivEkipe.getText());
+    }
 }

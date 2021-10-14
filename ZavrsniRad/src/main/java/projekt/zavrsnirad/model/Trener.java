@@ -15,8 +15,7 @@ import javax.persistence.Entity;
 public class Trener extends Osoba{
 
     private String nazivEkipeKojuTrenira;
-    private Integer brojPobjedaUKarijeri;
-    private Integer brojPorazaUKarijeri;
+
 
     public String getNazivEkipeKojuTrenira() {
         return nazivEkipeKojuTrenira;
@@ -24,26 +23,11 @@ public class Trener extends Osoba{
 
     public void setNazivEkipeKojuTrenira(String nazivEkipeKojuTrenira) {
         this.nazivEkipeKojuTrenira = nazivEkipeKojuTrenira;
-    }
+    } 
 
-    
-    
-    public Integer getBrojPobjedaUKarijeri() {
-        return brojPobjedaUKarijeri;
+    @Override
+    public String toString() {
+        return getIme() + " " + getPrezime() + " " + getNazivEkipeKojuTrenira();
     }
-
-    public void setBrojPobjedaUKarijeri(Integer brojPobjedaUKarijeri) {
-        this.brojPobjedaUKarijeri = brojPobjedaUKarijeri;
-    }
-
-    public Integer getBrojPorazaUKarijeri() {
-        return brojPorazaUKarijeri;
-    }
-
-    public void setBrojPorazaUKarijeri(Integer brojPorazaUKarijeri) {
-        this.brojPorazaUKarijeri = brojPorazaUKarijeri;
-    }
-    
-    
     
 }

@@ -5,17 +5,27 @@
  */
 package projekt.zavrsnirad.view;
 
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import projekt.zavrsnirad.controller.ObradaStatistika;
+import projekt.zavrsnirad.model.Statistika;
+import projekt.zavrsnirad.util.NbaExepction;
+
 /**
  *
  * @author valagic
  */
-public class ProzorStatistika extends javax.swing.JFrame {
+public class ProzorStatistika extends javax.swing.JFrame implements ProzorSucelja{
 
+    private ObradaStatistika obrada;
     /**
      * Creates new form ProzorStatistika
      */
     public ProzorStatistika() {
         initComponents();
+        obrada = new ObradaStatistika();
+        postavke();
+        ucitaj();
     }
 
     /**
@@ -27,58 +37,235 @@ public class ProzorStatistika extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lstEntiteti = new javax.swing.JList<>();
+        lblBrojPoena = new javax.swing.JLabel();
+        txtBrojPoena = new javax.swing.JTextField();
+        lblBrojAsistencija = new javax.swing.JLabel();
+        txtBrojAsistencija = new javax.swing.JTextField();
+        lblBrojSkokova = new javax.swing.JLabel();
+        txtBrojSkokova = new javax.swing.JTextField();
+        lblBrojUkradenihLopti = new javax.swing.JLabel();
+        txtBrojUkradenihLopti = new javax.swing.JTextField();
+        lblBrojBlokiranihSuteva = new javax.swing.JLabel();
+        txtBrojBlokiranihSuteva = new javax.swing.JTextField();
+        lblBrojIzgubljenihLopti = new javax.swing.JLabel();
+        txtBrojIzgubljenihLopti = new javax.swing.JTextField();
+        btnDodaj = new javax.swing.JButton();
+        btnPromjeni = new javax.swing.JButton();
+        btnObrisi = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        lstEntiteti.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstEntitetiValueChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(lstEntiteti);
+
+        lblBrojPoena.setText("Broj Poena");
+
+        lblBrojAsistencija.setText("Broj Asistencija");
+
+        txtBrojAsistencija.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBrojAsistencijaActionPerformed(evt);
+            }
+        });
+
+        lblBrojSkokova.setText("Broj Skokova");
+
+        lblBrojUkradenihLopti.setText("Broj ukradenih lopti");
+
+        lblBrojBlokiranihSuteva.setText("Broj blokiranih suteva");
+
+        lblBrojIzgubljenihLopti.setText("Broj izgubljenih lopti");
+
+        btnDodaj.setText("Dodaj");
+        btnDodaj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDodajActionPerformed(evt);
+            }
+        });
+
+        btnPromjeni.setText("Promjeni");
+        btnPromjeni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPromjeniActionPerformed(evt);
+            }
+        });
+
+        btnObrisi.setText("Obriši");
+        btnObrisi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnObrisiActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnDodaj, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnPromjeni)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtBrojPoena, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblBrojAsistencija, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblBrojPoena, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtBrojIzgubljenihLopti)
+                        .addComponent(txtBrojBlokiranihSuteva)
+                        .addComponent(lblBrojIzgubljenihLopti, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE))
+                    .addComponent(txtBrojAsistencija, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBrojSkokova, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblBrojSkokova, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblBrojUkradenihLopti, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBrojUkradenihLopti, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblBrojBlokiranihSuteva, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblBrojPoena)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBrojPoena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblBrojAsistencija)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtBrojAsistencija, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblBrojSkokova)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBrojSkokova, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblBrojUkradenihLopti)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBrojUkradenihLopti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblBrojBlokiranihSuteva)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBrojBlokiranihSuteva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblBrojIzgubljenihLopti)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBrojIzgubljenihLopti, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnObrisi)
+                            .addComponent(btnPromjeni)
+                            .addComponent(btnDodaj))))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtBrojAsistencijaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBrojAsistencijaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBrojAsistencijaActionPerformed
+
+    private void lstEntitetiValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstEntitetiValueChanged
+        if(evt.getValueIsAdjusting() || lstEntiteti.getSelectedValue()==null){
+            return;
+        }
+        obrada.setEntitet(lstEntiteti.getSelectedValue());
+        var e = obrada.getEntitet();
+        txtBrojPoena.setText(String.valueOf(e.getBrojPoena()));
+        txtBrojAsistencija.setText(String.valueOf(e.getBrojAsistencija()));
+        txtBrojSkokova.setText(String.valueOf(e.getBrojSkokova()));
+        txtBrojUkradenihLopti.setText(String.valueOf(e.getBrojUkradenihLopti()));
+        txtBrojBlokiranihSuteva.setText(String.valueOf(e.getBrojBlokiranihSuteva()));
+        txtBrojIzgubljenihLopti.setText(String.valueOf(e.getBrojIzgubljenihLopti()));
+    }//GEN-LAST:event_lstEntitetiValueChanged
+
+    private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
+        obrada.setEntitet(new Statistika());
+        postaviVrijednostiUEntitet();
+
+        try {
+            obrada.create();
+            ucitaj();
+        } catch (NbaExepction ex) {
+            JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
+        }
+    }//GEN-LAST:event_btnDodajActionPerformed
+
+    private void btnPromjeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromjeniActionPerformed
+         postaviVrijednostiUEntitet();
+        try {
+            obrada.update();
+            ucitaj();
+        } catch (NbaExepction ex) {
+            JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
+        }
+    }//GEN-LAST:event_btnPromjeniActionPerformed
+
+    private void btnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiActionPerformed
+
+        try {
+            obrada.delete();
+            ucitaj();
+        } catch (NbaExepction ex) {
+            JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
+        }
+    }//GEN-LAST:event_btnObrisiActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ProzorStatistika.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ProzorStatistika.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ProzorStatistika.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ProzorStatistika.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ProzorStatistika().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDodaj;
+    private javax.swing.JButton btnObrisi;
+    private javax.swing.JButton btnPromjeni;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblBrojAsistencija;
+    private javax.swing.JLabel lblBrojBlokiranihSuteva;
+    private javax.swing.JLabel lblBrojIzgubljenihLopti;
+    private javax.swing.JLabel lblBrojPoena;
+    private javax.swing.JLabel lblBrojSkokova;
+    private javax.swing.JLabel lblBrojUkradenihLopti;
+    private javax.swing.JList<Statistika> lstEntiteti;
+    private javax.swing.JTextField txtBrojAsistencija;
+    private javax.swing.JTextField txtBrojBlokiranihSuteva;
+    private javax.swing.JTextField txtBrojIzgubljenihLopti;
+    private javax.swing.JTextField txtBrojPoena;
+    private javax.swing.JTextField txtBrojSkokova;
+    private javax.swing.JTextField txtBrojUkradenihLopti;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void postaviVrijednostiUEntitet() {
+        //var e = obrada.getEntitet();
+        
+        
+    }
+
+    @Override
+    public void postavke() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void ucitaj() {
+        DefaultListModel<Statistika> m = new DefaultListModel<>();
+        obrada.read().forEach(s->{m.addElement(s);});
+        lstEntiteti.setModel(m);
+    }
 }

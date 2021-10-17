@@ -5,8 +5,6 @@
  */
 package projekt.zavrsnirad.util;
 
-import java.math.BigDecimal;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.hibernate.Session;
 import projekt.zavrsnirad.model.Ekipa;
@@ -32,7 +30,7 @@ public class HibernateSessionPocetniInsert {
         Igrac i = new Igrac();
         i.setIme("Luka");
         i.setPrezime("Doncic");
-        i.setNazivEkipeZaKojuIgra("Dallas Mavericks");
+        i.setNazivEkipeZaKojuIgra("Dallas Maverickss");
 
         s.save(i);
         
@@ -40,8 +38,7 @@ public class HibernateSessionPocetniInsert {
         t.setIme("Pero");
         t.setPrezime("Perić");
         t.setNazivEkipeKojuTrenira("Dallas Mavericks");
-        t.setBrojPobjedaUKarijeri(987);
-        t.setBrojPorazaUKarijeri(678);
+
         s.save(t);
         
         Ekipa e = new Ekipa();

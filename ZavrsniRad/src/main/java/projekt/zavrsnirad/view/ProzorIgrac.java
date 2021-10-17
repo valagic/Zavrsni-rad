@@ -9,6 +9,7 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import projekt.zavrsnirad.controller.ObradaIgrac;
 import projekt.zavrsnirad.model.Igrac;
+import projekt.zavrsnirad.util.Aplikacija;
 import projekt.zavrsnirad.util.NbaExepction;
 
 /**
@@ -212,7 +213,7 @@ public class ProzorIgrac extends javax.swing.JFrame implements ProzorSucelja{
 
     @Override
     public void postavke() {
-        //setTitle(Aplikacija.getNaslov("Igraci"));
+        //setTitle(Aplikacija.NASLOV_APP);
     }
 
     @Override

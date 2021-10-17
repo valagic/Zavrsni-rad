@@ -51,16 +51,9 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
         lstEntitetiDomacin = new javax.swing.JList<>();
         lvlEkipaNazivDomace = new javax.swing.JLabel();
         txtEkipaNazivDomace = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        lstEntitetiGost = new javax.swing.JList<>();
-        lblEkipaNazivGostujuce = new javax.swing.JLabel();
-        txtEkipaNazivGostujuce = new javax.swing.JTextField();
         btnEkipaDomacaDodaj = new javax.swing.JButton();
         btnEkipaDomacaPromjeni = new javax.swing.JButton();
         btnEkipaDomacaObrisi = new javax.swing.JButton();
-        btnEkipaGostDodaj = new javax.swing.JButton();
-        btnEkipaGostPromjeni = new javax.swing.JButton();
-        btnEkipaGostObrisi = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -71,16 +64,7 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
         });
         jScrollPane1.setViewportView(lstEntitetiDomacin);
 
-        lvlEkipaNazivDomace.setText("Naziv domace ekipe");
-
-        lstEntitetiGost.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                lstEntitetiGostValueChanged(evt);
-            }
-        });
-        jScrollPane2.setViewportView(lstEntitetiGost);
-
-        lblEkipaNazivGostujuce.setText("Naziv gostujuce ekipe");
+        lvlEkipaNazivDomace.setText("Naziv ekipe");
 
         btnEkipaDomacaDodaj.setText("Dodaj");
         btnEkipaDomacaDodaj.addActionListener(new java.awt.event.ActionListener() {
@@ -103,27 +87,6 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
             }
         });
 
-        btnEkipaGostDodaj.setText("Dodaj");
-        btnEkipaGostDodaj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEkipaGostDodajActionPerformed(evt);
-            }
-        });
-
-        btnEkipaGostPromjeni.setText("Promjeni");
-        btnEkipaGostPromjeni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEkipaGostPromjeniActionPerformed(evt);
-            }
-        });
-
-        btnEkipaGostObrisi.setText("Obriši");
-        btnEkipaGostObrisi.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEkipaGostObrisiActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,21 +106,7 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
                             .addComponent(btnEkipaDomacaPromjeni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnEkipaDomacaDodaj, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnEkipaDomacaObrisi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEkipaNazivGostujuce, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblEkipaNazivGostujuce, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnEkipaGostPromjeni)
-                            .addComponent(btnEkipaGostDodaj, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnEkipaGostObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,28 +114,16 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblEkipaNazivGostujuce)
+                        .addComponent(lvlEkipaNazivDomace)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtEkipaNazivGostujuce, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtEkipaNazivDomace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnEkipaGostDodaj)
+                        .addComponent(btnEkipaDomacaDodaj)
                         .addGap(18, 18, 18)
-                        .addComponent(btnEkipaGostPromjeni)
+                        .addComponent(btnEkipaDomacaPromjeni)
                         .addGap(18, 18, 18)
-                        .addComponent(btnEkipaGostObrisi))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lvlEkipaNazivDomace)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(txtEkipaNazivDomace, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnEkipaDomacaDodaj)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnEkipaDomacaPromjeni)
-                            .addGap(18, 18, 18)
-                            .addComponent(btnEkipaDomacaObrisi))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 232, Short.MAX_VALUE)
-                        .addComponent(jScrollPane2)))
+                        .addComponent(btnEkipaDomacaObrisi))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
@@ -234,46 +171,6 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
         }
     }//GEN-LAST:event_btnEkipaDomacaObrisiActionPerformed
 
-    private void btnEkipaGostDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEkipaGostDodajActionPerformed
-        obrada.setEntitet(new Ekipa());
-        postaviVrijednostiUEntitet();
-
-        try {
-            obrada.create();
-            ucitaj();
-        } catch (NbaExepction ex) {
-            JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
-        }
-    }//GEN-LAST:event_btnEkipaGostDodajActionPerformed
-
-    private void btnEkipaGostPromjeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEkipaGostPromjeniActionPerformed
-        postaviVrijednostiUEntitet();
-        try {
-            obrada.update();
-            ucitaj();
-        } catch (NbaExepction ex) {
-            JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
-        }
-    }//GEN-LAST:event_btnEkipaGostPromjeniActionPerformed
-
-    private void btnEkipaGostObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEkipaGostObrisiActionPerformed
-        try {
-            obrada.delete();
-            ucitaj();
-        } catch (NbaExepction ex) {
-            JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
-        }
-    }//GEN-LAST:event_btnEkipaGostObrisiActionPerformed
-
-    private void lstEntitetiGostValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstEntitetiGostValueChanged
-        if(evt.getValueIsAdjusting() || lstEntitetiGost.getSelectedValue()==null){
-            return;
-        }
-       obrada.setEntitet(lstEntitetiGost.getSelectedValue());
-       var e = obrada.getEntitet();
-       txtEkipaNazivGostujuce.setText(e.getNazivEkipe());
-    }//GEN-LAST:event_lstEntitetiGostValueChanged
-
     /**
      * @param args the command line arguments
      */
@@ -283,17 +180,10 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
     private javax.swing.JButton btnEkipaDomacaDodaj;
     private javax.swing.JButton btnEkipaDomacaObrisi;
     private javax.swing.JButton btnEkipaDomacaPromjeni;
-    private javax.swing.JButton btnEkipaGostDodaj;
-    private javax.swing.JButton btnEkipaGostObrisi;
-    private javax.swing.JButton btnEkipaGostPromjeni;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblEkipaNazivGostujuce;
     private javax.swing.JList<Ekipa> lstEntitetiDomacin;
-    private javax.swing.JList<Ekipa> lstEntitetiGost;
     private javax.swing.JLabel lvlEkipaNazivDomace;
     private javax.swing.JTextField txtEkipaNazivDomace;
-    private javax.swing.JTextField txtEkipaNazivGostujuce;
     // End of variables declaration//GEN-END:variables
 
     @Override

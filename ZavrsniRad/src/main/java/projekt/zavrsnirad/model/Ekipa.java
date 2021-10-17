@@ -37,5 +37,10 @@ public class Ekipa extends Entitet{
         this.treneri = treneri;
     }
 
+    @Override
+    public String toString() {
+        return getNazivEkipe();
+    }
+
     
 }

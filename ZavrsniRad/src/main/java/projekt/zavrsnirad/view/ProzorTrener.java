@@ -45,11 +45,9 @@ public class ProzorTrener extends javax.swing.JFrame implements ProzorSucelja{
         txtIme = new javax.swing.JTextField();
         lblPrezime = new javax.swing.JLabel();
         txtPrezime = new javax.swing.JTextField();
-        lblImeEkipe = new javax.swing.JLabel();
         btnDodaj = new javax.swing.JButton();
         btnPromjeni = new javax.swing.JButton();
         btnObriši = new javax.swing.JButton();
-        txtNazivEkipe = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -63,8 +61,6 @@ public class ProzorTrener extends javax.swing.JFrame implements ProzorSucelja{
         lblIme.setText("Ime");
 
         lblPrezime.setText("Prezime");
-
-        lblImeEkipe.setText("Naziv ekipe");
 
         btnDodaj.setText("Dodaj");
         btnDodaj.addActionListener(new java.awt.event.ActionListener() {
@@ -96,20 +92,18 @@ public class ProzorTrener extends javax.swing.JFrame implements ProzorSucelja{
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnDodaj)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPromjeni)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnObriši))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(lblIme)
-                        .addComponent(txtIme)
-                        .addComponent(lblImeEkipe)
+                        .addComponent(txtIme, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
                         .addComponent(txtPrezime)
-                        .addComponent(lblPrezime)
-                        .addComponent(txtNazivEkipe, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)))
-                .addContainerGap(36, Short.MAX_VALUE))
+                        .addComponent(lblPrezime))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnDodaj)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnPromjeni)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnObriši)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -125,16 +119,12 @@ public class ProzorTrener extends javax.swing.JFrame implements ProzorSucelja{
                         .addComponent(lblPrezime)
                         .addGap(7, 7, 7)
                         .addComponent(txtPrezime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblImeEkipe)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtNazivEkipe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(25, 25, 25)
+                        .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnDodaj)
                             .addComponent(btnPromjeni)
                             .addComponent(btnObriši))
-                        .addGap(0, 62, Short.MAX_VALUE)))
+                        .addGap(0, 103, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -205,11 +195,9 @@ public class ProzorTrener extends javax.swing.JFrame implements ProzorSucelja{
     private javax.swing.JButton btnPromjeni;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblIme;
-    private javax.swing.JLabel lblImeEkipe;
     private javax.swing.JLabel lblPrezime;
     private javax.swing.JList<Trener> lstEntiteti;
     private javax.swing.JTextField txtIme;
-    private javax.swing.JTextField txtNazivEkipe;
     private javax.swing.JTextField txtPrezime;
     // End of variables declaration//GEN-END:variables
 

@@ -140,7 +140,6 @@ public class ProzorTrener extends javax.swing.JFrame implements ProzorSucelja{
         var e = obrada.getEntitet();
         txtIme.setText(e.getIme());
         txtPrezime.setText(e.getPrezime());
-        txtNazivEkipe.setText(e.getNazivEkipeKojuTrenira());
     }//GEN-LAST:event_lstEntitetiValueChanged
 
     private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
@@ -206,6 +205,5 @@ public class ProzorTrener extends javax.swing.JFrame implements ProzorSucelja{
        var e = obrada.getEntitet();
        e.setIme(txtIme.getText());
        e.setPrezime(txtPrezime.getText());
-       e.setNazivEkipeKojuTrenira(txtNazivEkipe.getText());
     }
 }

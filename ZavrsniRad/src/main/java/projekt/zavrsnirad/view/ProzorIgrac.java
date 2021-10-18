@@ -44,8 +44,6 @@ public class ProzorIgrac extends javax.swing.JFrame implements ProzorSucelja{
         txtIme = new javax.swing.JTextField();
         lvlPrezime = new javax.swing.JLabel();
         txtPrezime = new javax.swing.JTextField();
-        lvlNazivEkipe = new javax.swing.JLabel();
-        txtNazivEkipe = new javax.swing.JTextField();
         btnDodaj = new javax.swing.JButton();
         btnPromjeni = new javax.swing.JButton();
         btnObrisi = new javax.swing.JButton();
@@ -62,8 +60,6 @@ public class ProzorIgrac extends javax.swing.JFrame implements ProzorSucelja{
         lblIme.setText("Ime");
 
         lvlPrezime.setText("Prezime");
-
-        lvlNazivEkipe.setText("Naziv ekipe");
 
         btnDodaj.setText("Dodaj");
         btnDodaj.addActionListener(new java.awt.event.ActionListener() {
@@ -100,9 +96,7 @@ public class ProzorIgrac extends javax.swing.JFrame implements ProzorSucelja{
                             .addComponent(lblIme, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtIme)
                             .addComponent(lvlPrezime)
-                            .addComponent(txtPrezime, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)
-                            .addComponent(lvlNazivEkipe)
-                            .addComponent(txtNazivEkipe)))
+                            .addComponent(txtPrezime, javax.swing.GroupLayout.DEFAULT_SIZE, 106, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnDodaj)
@@ -125,11 +119,7 @@ public class ProzorIgrac extends javax.swing.JFrame implements ProzorSucelja{
                         .addComponent(lvlPrezime)
                         .addGap(18, 18, 18)
                         .addComponent(txtPrezime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lvlNazivEkipe)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNazivEkipe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
+                        .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnDodaj)
                             .addComponent(btnPromjeni)
@@ -150,7 +140,6 @@ public class ProzorIgrac extends javax.swing.JFrame implements ProzorSucelja{
        var e = obrada.getEntitet();
        txtIme.setText(e.getIme());
        txtPrezime.setText(e.getPrezime());
-       txtNazivEkipe.setText(e.getNazivEkipeZaKojuIgra());
        
     }//GEN-LAST:event_lstEntitetiValueChanged
 
@@ -196,10 +185,8 @@ public class ProzorIgrac extends javax.swing.JFrame implements ProzorSucelja{
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblIme;
     private javax.swing.JList<Igrac> lstEntiteti;
-    private javax.swing.JLabel lvlNazivEkipe;
     private javax.swing.JLabel lvlPrezime;
     private javax.swing.JTextField txtIme;
-    private javax.swing.JTextField txtNazivEkipe;
     private javax.swing.JTextField txtPrezime;
     // End of variables declaration//GEN-END:variables
 
@@ -208,7 +195,6 @@ public class ProzorIgrac extends javax.swing.JFrame implements ProzorSucelja{
        var e = obrada.getEntitet();
        e.setIme(txtIme.getText());
        e.setPrezime(txtPrezime.getText());
-       e.setNazivEkipeZaKojuIgra(txtNazivEkipe.getText());
     }
 
     @Override

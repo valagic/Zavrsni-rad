@@ -23,7 +23,6 @@ public class ObradaTrener extends ObradaOsoba<Trener>{
     @Override
     protected void kontrolaCreate() throws NbaExepction {
         super.kontrolaCreate(); // s time odradimo sve kontrole vezane za osobu
-        kontrolaNazivEkipe();
 
         
         }
@@ -35,12 +34,7 @@ public class ObradaTrener extends ObradaOsoba<Trener>{
     @Override
     protected void kontrolaDelete() throws NbaExepction {
         }
-    
-    
-    private void kontrolaNazivEkipe() throws NbaExepction{
-        if(entitet.getNazivEkipeKojuTrenira()== null || entitet.getNazivEkipeKojuTrenira().trim().length() == 0) {
-            throw new NbaExepction("Molim unesite ime ekipe");
-        }}
+
 
     /*private void kontrolaBrojPobjedaUKarijeri(String s) throws NbaExepction{
         kontrolaSamoBrojevi(s);

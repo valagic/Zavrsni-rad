@@ -17,18 +17,11 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Igrac extends Osoba{
     
-    private String nazivEkipeZaKojuIgra;
+
     
     @ManyToOne
     private Ekipa ekipa;
 
-    public String getNazivEkipeZaKojuIgra() {
-        return nazivEkipeZaKojuIgra;
-    }
-
-    public void setNazivEkipeZaKojuIgra(String nazivEkipeZaKojuIgra) {
-        this.nazivEkipeZaKojuIgra = nazivEkipeZaKojuIgra;
-    }
 
     public Ekipa getEkipa() {
         return ekipa;
@@ -40,7 +33,7 @@ public class Igrac extends Osoba{
 
     @Override
     public String toString() {
-        return getIme() + " " + getPrezime() + " " + getNazivEkipeZaKojuIgra();
+        return getIme() + " " + getPrezime();
     }
 
   

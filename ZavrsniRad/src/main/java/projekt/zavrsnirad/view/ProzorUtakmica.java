@@ -17,6 +17,7 @@ import projekt.zavrsnirad.controller.ObradaStatistika;
 import projekt.zavrsnirad.controller.ObradaTrener;
 import projekt.zavrsnirad.controller.ObradaUtakmica;
 import projekt.zavrsnirad.model.Ekipa;
+import projekt.zavrsnirad.model.Trener;
 import projekt.zavrsnirad.model.Utakmica;
 import projekt.zavrsnirad.util.NbaExepction;
 
@@ -69,6 +70,13 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
         btnDodaj = new javax.swing.JButton();
         btnPromjeni = new javax.swing.JButton();
         btnObrisi = new javax.swing.JButton();
+        lblListaIgraca = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lstIgraca = new javax.swing.JList<>();
+        lblTrenerDomaceEkipe = new javax.swing.JLabel();
+        cmbTrenerDomaceEkipe = new javax.swing.JComboBox<>();
+        lblTrenerGostujuceEkipe = new javax.swing.JLabel();
+        cmbTrenerGostujuceEkipe = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -108,6 +116,14 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
             }
         });
 
+        lblListaIgraca.setText("Lista Igraca");
+
+        jScrollPane2.setViewportView(lstIgraca);
+
+        lblTrenerDomaceEkipe.setText("Trener domace ekipe");
+
+        lblTrenerGostujuceEkipe.setText("Trener gostujuce ekipe");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -117,58 +133,79 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblDomacaEkipa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(lblDatumPocetka, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(dpDatumPocetka, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtNazivDvorane, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNazivDvorane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(470, 470, 470))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnDodaj)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnPromjeni)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnObrisi)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lblGostujucaEkipa, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                                .addComponent(cmbEkipaDomacin, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cmbEkipaGost, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(cmbEkipaDomacin, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtNazivDvorane)
+                            .addComponent(lblNazivDvorane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblDomacaEkipa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dpDatumPocetka, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                            .addComponent(cmbTrenerGostujuceEkipe, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblTrenerGostujuceEkipe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmbEkipaGost, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmbTrenerDomaceEkipe, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnDodaj)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnPromjeni)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnObrisi)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblGostujucaEkipa, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblDatumPocetka, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblTrenerDomaceEkipe, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(86, 86, 86)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblListaIgraca, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(259, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
-                    .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addComponent(lblNazivDvorane)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNazivDvorane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblDatumPocetka)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dpDatumPocetka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblDomacaEkipa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cmbEkipaDomacin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(13, 13, 13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblGostujucaEkipa)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cmbEkipaGost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTrenerDomaceEkipe)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbTrenerDomaceEkipe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblTrenerGostujuceEkipe)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbTrenerGostujuceEkipe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnDodaj)
                             .addComponent(btnPromjeni)
-                            .addComponent(btnObrisi))))
-                .addContainerGap(153, Short.MAX_VALUE))
+                            .addComponent(btnObrisi))
+                        .addContainerGap(105, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(lblListaIgraca)
+                                .addGap(7, 7, 7)
+                                .addComponent(jScrollPane2)))
+                        .addGap(73, 73, 73))))
         );
 
         pack();
@@ -204,7 +241,7 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
             
             obrada.create();
             ucitaj();
-            //pocistiPodatke();
+            //pocistiPodatke(); -> trebam kreirati metodu koje ce obrisati podatke
         } catch (NbaExepction ex) {
             JOptionPane.showMessageDialog(getRootPane(), ex.getPoruka());
         }
@@ -242,13 +279,20 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
     private javax.swing.JButton btnPromjeni;
     private javax.swing.JComboBox<Ekipa> cmbEkipaDomacin;
     private javax.swing.JComboBox<Ekipa> cmbEkipaGost;
+    private javax.swing.JComboBox<String> cmbTrenerDomaceEkipe;
+    private javax.swing.JComboBox<String> cmbTrenerGostujuceEkipe;
     private com.github.lgooddatepicker.components.DatePicker dpDatumPocetka;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblDatumPocetka;
     private javax.swing.JLabel lblDomacaEkipa;
     private javax.swing.JLabel lblGostujucaEkipa;
+    private javax.swing.JLabel lblListaIgraca;
     private javax.swing.JLabel lblNazivDvorane;
+    private javax.swing.JLabel lblTrenerDomaceEkipe;
+    private javax.swing.JLabel lblTrenerGostujuceEkipe;
     private javax.swing.JList<Utakmica> lstEntiteti;
+    private javax.swing.JList<String> lstIgraca;
     private javax.swing.JTextField txtNazivDvorane;
     // End of variables declaration//GEN-END:variables
 
@@ -270,6 +314,17 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
         });
         cmbEkipaDomacin.setModel(m);
         cmbEkipaGost.setModel(m);
+        
+        /*DefaultComboBoxModel<Trener> mm = new DefaultComboBoxModel<>();
+        Trener t = new Trener();
+        t.setId(Long.valueOf(0));
+        t.setIme("Nije odabrano");
+        mm.addElement(t);
+        new ObradaTrener().read().forEach(s -> {
+            mm.addElement(s);
+        });
+        cmbTrenerDomaceEkipe.setModel(mm);
+        cmbTrenerGostujuceEkipe.setModel(mm);*/
         
         DatePickerSettings dps = new DatePickerSettings(new Locale("hr", "HR"));
         dps.setFormatForDatesCommonEra("dd.MM.yyyy");

@@ -14,9 +14,12 @@ import javax.persistence.Entity;
 @Entity
 public class Trener extends Osoba{
 
+    
+    
     @Override
     public String toString() {
         return getIme() + " " + getPrezime();
     }
+    
     
 }

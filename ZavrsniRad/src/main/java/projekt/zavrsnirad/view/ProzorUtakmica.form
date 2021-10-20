@@ -34,45 +34,29 @@
                       <Component id="btnPromjeni" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnObrisi" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="cmbEkipaDomacin" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtNazivDvorane" alignment="0" max="32767" attributes="0"/>
-                          <Component id="lblNazivDvorane" alignment="1" max="32767" attributes="0"/>
-                          <Component id="lblDomacaEkipa" alignment="0" max="32767" attributes="0"/>
-                          <Component id="dpDatumPocetka" alignment="1" pref="144" max="32767" attributes="0"/>
-                          <Component id="cmbTrenerGostujuceEkipe" max="32767" attributes="0"/>
-                          <Component id="lblTrenerGostujuceEkipe" max="32767" attributes="0"/>
-                          <Component id="cmbEkipaGost" alignment="0" max="32767" attributes="0"/>
-                          <Component id="cmbTrenerDomaceEkipe" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblGostujucaEkipa" alignment="0" min="-2" pref="134" max="-2" attributes="0"/>
-                                  <Component id="lblDatumPocetka" min="-2" pref="88" max="-2" attributes="0"/>
-                                  <Component id="lblTrenerDomaceEkipe" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="86" pref="86" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblListaIgraca" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" alignment="0" min="-2" pref="168" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="259" max="32767" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="cmbEkipaGost" alignment="0" max="32767" attributes="0"/>
+                      <Component id="cmbEkipaDomacin" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblDomacaEkipa" alignment="0" max="32767" attributes="0"/>
+                      <Component id="dpDatumPocetka" alignment="0" pref="157" max="32767" attributes="0"/>
+                      <Component id="lblDatumPocetka" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
+                      <Component id="txtNazivDvorane" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblNazivDvorane" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblGostujucaEkipa" alignment="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace pref="56" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Component id="lblNazivDvorane" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="txtNazivDvorane" min="-2" max="-2" attributes="0"/>
@@ -88,34 +72,15 @@
                       <Component id="lblGostujucaEkipa" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="cmbEkipaGost" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblTrenerDomaceEkipe" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="cmbTrenerDomaceEkipe" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblTrenerGostujuceEkipe" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="cmbTrenerGostujuceEkipe" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnDodaj" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnPromjeni" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnObrisi" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="105" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="lblListaIgraca" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -210,60 +175,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnObrisiActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblListaIgraca">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Lista Igraca"/>
-      </Properties>
-    </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JList" name="lstIgraca">
-          <Properties>
-            <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-              <StringArray count="0"/>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-      </SubComponents>
-    </Container>
-    <Component class="javax.swing.JLabel" name="lblTrenerDomaceEkipe">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Trener domace ekipe"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="cmbTrenerDomaceEkipe">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lblTrenerGostujuceEkipe">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Trener gostujuce ekipe"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="cmbTrenerGostujuceEkipe">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="0"/>
-        </Property>
-      </Properties>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

@@ -17,20 +17,27 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Igrac extends Osoba{
     
+    private String ime;
+    private String prezime;
 
+    public String getIme() {
+        return ime;
+    }
+
+    public void setIme(String ime) {
+        this.ime = ime;
+    }
+
+    public String getPrezime() {
+        return prezime;
+    }
+
+    public void setPrezime(String prezime) {
+        this.prezime = prezime;
+    }
     
-    @ManyToOne
-    private Ekipa ekipa;
-
-
-    public Ekipa getEkipa() {
-        return ekipa;
-    }
-
-    public void setEkipa(Ekipa ekipa) {
-        this.ekipa = ekipa;
-    }
-
+    
+    
     @Override
     public String toString() {
         return getIme() + " " + getPrezime();

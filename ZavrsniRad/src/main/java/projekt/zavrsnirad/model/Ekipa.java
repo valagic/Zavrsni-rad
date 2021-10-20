@@ -21,6 +21,9 @@ public class Ekipa extends Entitet{
 
     @ManyToOne
     private Trener treneri;
+    
+    @ManyToOne
+    private Igrac igraci;
  
     public String getNazivEkipe() {
         return naziv;
@@ -38,6 +41,16 @@ public class Ekipa extends Entitet{
         this.treneri = treneri;
     }
 
+    public Igrac getIgraci() {
+        return igraci;
+    }
+
+    public void setIgraci(Igrac igraci) {
+        this.igraci = igraci;
+    }
+
+    
+    
     @Override
     public String toString() {
         return getNazivEkipe();
@@ -46,8 +59,9 @@ public class Ekipa extends Entitet{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.naziv);
-        hash = 37 * hash + Objects.hashCode(this.treneri);
+        hash = 59 * hash + Objects.hashCode(this.naziv);
+        hash = 59 * hash + Objects.hashCode(this.treneri);
+        hash = 59 * hash + Objects.hashCode(this.igraci);
         return hash;
     }
 
@@ -67,6 +81,9 @@ public class Ekipa extends Entitet{
             return false;
         }
         if (!Objects.equals(this.treneri, other.treneri)) {
+            return false;
+        }
+        if (!Objects.equals(this.igraci, other.igraci)) {
             return false;
         }
         return true;

@@ -5,6 +5,8 @@
  */
 package projekt.zavrsnirad.view;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import projekt.zavrsnirad.controller.ObradaEkipa;
@@ -55,7 +57,7 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        lstEntitetiDomacin = new javax.swing.JList<>();
+        lstEntiteti = new javax.swing.JList<>();
         lvlEkipaNazivDomace = new javax.swing.JLabel();
         txtEkipaNazivDomace = new javax.swing.JTextField();
         btnEkipaDomacaDodaj = new javax.swing.JButton();
@@ -70,12 +72,12 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        lstEntitetiDomacin.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+        lstEntiteti.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                lstEntitetiDomacinValueChanged(evt);
+                lstEntitetiValueChanged(evt);
             }
         });
-        jScrollPane1.setViewportView(lstEntitetiDomacin);
+        jScrollPane1.setViewportView(lstEntiteti);
 
         lvlEkipaNazivDomace.setText("Naziv ekipe");
 
@@ -102,18 +104,8 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
 
         lblEkipaIgraci.setText("Igraci");
 
-        lstEkipaIgraci.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                lstEkipaIgraciValueChanged(evt);
-            }
-        });
         jScrollPane2.setViewportView(lstEkipaIgraci);
 
-        lstEkipaTreneri.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                lstEkipaTreneriValueChanged(evt);
-            }
-        });
         jScrollPane3.setViewportView(lstEkipaTreneri);
 
         lblEkipaTreneri.setText("Treneri");
@@ -184,14 +176,14 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lstEntitetiDomacinValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstEntitetiDomacinValueChanged
-        if(evt.getValueIsAdjusting() || lstEntitetiDomacin.getSelectedValue()==null){
+    private void lstEntitetiValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstEntitetiValueChanged
+        if(evt.getValueIsAdjusting() || lstEntiteti.getSelectedValue()==null){
             return;
         }
-       obrada.setEntitet(lstEntitetiDomacin.getSelectedValue());
+       obrada.setEntitet(lstEntiteti.getSelectedValue());
        var e = obrada.getEntitet();
        txtEkipaNazivDomace.setText(e.getNazivEkipe());
-    }//GEN-LAST:event_lstEntitetiDomacinValueChanged
+    }//GEN-LAST:event_lstEntitetiValueChanged
 
     private void btnEkipaDomacaDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEkipaDomacaDodajActionPerformed
         obrada.setEntitet(new Ekipa());
@@ -224,14 +216,6 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
         }
     }//GEN-LAST:event_btnEkipaDomacaObrisiActionPerformed
 
-    private void lstEkipaIgraciValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstEkipaIgraciValueChanged
-        
-    }//GEN-LAST:event_lstEkipaIgraciValueChanged
-
-    private void lstEkipaTreneriValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstEkipaTreneriValueChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lstEkipaTreneriValueChanged
-
     /**
      * @param args the command line arguments
      */
@@ -248,7 +232,7 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
     private javax.swing.JLabel lblEkipaTreneri;
     private javax.swing.JList<Igrac> lstEkipaIgraci;
     private javax.swing.JList<Trener> lstEkipaTreneri;
-    private javax.swing.JList<Ekipa> lstEntitetiDomacin;
+    private javax.swing.JList<Ekipa> lstEntiteti;
     private javax.swing.JLabel lvlEkipaNazivDomace;
     private javax.swing.JTextField txtEkipaNazivDomace;
     // End of variables declaration//GEN-END:variables
@@ -257,6 +241,16 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
     public void postaviVrijednostiUEntitet() {
         var e = obrada.getEntitet();
         e.setNazivEkipe(txtEkipaNazivDomace.getText());
+        
+        /*DefaultListModel<Igrac> m = (DefaultListModel<Igrac>) lstEkipaIgraci.getModel();
+        for (Igrac i : lstEkipaIgraci.getSelectedValuesList()) {
+           
+                Igrac ig = new Igrac();
+                
+            }
+        }
+        lstEkipaIgraci.repaint();*/
+        
     }
 
     @Override
@@ -274,6 +268,8 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
     public void ucitaj() {
         DefaultListModel<Ekipa> m = new DefaultListModel<>();
         obrada.read().forEach(s->{m.addElement(s);});
-        lstEntitetiDomacin.setModel(m);
+        lstEntiteti.setModel(m);
     }
+
+    
 }

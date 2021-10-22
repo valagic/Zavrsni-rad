@@ -7,6 +7,7 @@ package projekt.zavrsnirad.view;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.time.ZoneId;
+import java.util.Date;
 import java.util.Locale;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
@@ -128,12 +129,13 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
                         .addComponent(cmbEkipaGost, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(cmbEkipaDomacin, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(lblDomacaEkipa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblGostujucaEkipa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(dpDatumPocetka, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE)
                         .addComponent(lblDatumPocetka, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtNazivDvorane, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(lblNazivDvorane, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblGostujucaEkipa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                        .addComponent(txtNazivDvorane, javax.swing.GroupLayout.Alignment.LEADING)))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,13 +144,13 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblNazivDvorane)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNazivDvorane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblDatumPocetka)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dpDatumPocetka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNazivDvorane)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNazivDvorane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblDomacaEkipa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -247,8 +249,19 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
     // End of variables declaration//GEN-END:variables
 
     @Override
-    public void postaviVrijednostiUEntitet() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void postaviVrijednostiUEntitet() { // treba datum upogonit da prikazuje koji je dan
+        var e = obrada.getEntitet();
+        if (dpDatumPocetka.getDate() != null) {
+            e.setDatumPocetka(Date.from(
+                    dpDatumPocetka.getDate().atStartOfDay()
+                            .atZone(ZoneId.systemDefault()).toInstant())
+            );
+        }
+        e.setNazivDvorane(txtNazivDvorane.getText());
+        
+        e.setDomaca((Ekipa) cmbEkipaDomacin.getSelectedItem());
+        e.setGost((Ekipa) cmbEkipaGost.getSelectedItem());
+        
     }
 
     @Override

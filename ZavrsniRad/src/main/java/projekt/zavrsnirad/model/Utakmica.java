@@ -58,6 +58,11 @@ public class Utakmica extends Entitet{
     public void setGost(Ekipa gost) {
         this.gost = gost;
     }
+
+    @Override
+    public String toString() {
+        return getNazivDvorane() + " " + getDatumPocetka() + " " + getDomaca() + " - " + getGost();
+    }
     
     
 

@@ -39,14 +39,16 @@
                       <Component id="cmbEkipaGost" alignment="0" max="32767" attributes="0"/>
                       <Component id="cmbEkipaDomacin" alignment="0" max="32767" attributes="0"/>
                       <Component id="lblDomacaEkipa" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblGostujucaEkipa" alignment="0" pref="157" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                       <Component id="dpDatumPocetka" alignment="0" pref="157" max="32767" attributes="0"/>
                       <Component id="lblDatumPocetka" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
-                      <Component id="txtNazivDvorane" alignment="0" max="32767" attributes="0"/>
                       <Component id="lblNazivDvorane" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lblGostujucaEkipa" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtNazivDvorane" alignment="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="56" max="32767" attributes="0"/>
+              <EmptySpace pref="117" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -57,13 +59,13 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jScrollPane1" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="lblNazivDvorane" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="txtNazivDvorane" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblDatumPocetka" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="dpDatumPocetka" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="lblNazivDvorane" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="txtNazivDvorane" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="lblDomacaEkipa" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>

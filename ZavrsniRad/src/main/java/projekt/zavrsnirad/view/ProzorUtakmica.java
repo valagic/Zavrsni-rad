@@ -18,7 +18,6 @@ import projekt.zavrsnirad.controller.ObradaStatistika;
 import projekt.zavrsnirad.controller.ObradaTrener;
 import projekt.zavrsnirad.controller.ObradaUtakmica;
 import projekt.zavrsnirad.model.Ekipa;
-import projekt.zavrsnirad.model.Trener;
 import projekt.zavrsnirad.model.Utakmica;
 import projekt.zavrsnirad.util.NbaExepction;
 
@@ -31,8 +30,6 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
     private ObradaUtakmica obrada;
     private ObradaEkipa obradaEkipa;
     private ObradaIgrac obradaIgrac;
-    private ObradaTrener obradaTrener;
-    private ObradaStatistika obradaStatistika;
     private int odabraniIndex;
     /**
      * Creates new form ProzorUtakmica
@@ -42,8 +39,6 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
         obrada = new ObradaUtakmica();
         obradaEkipa = new ObradaEkipa();
         obradaIgrac = new ObradaIgrac();
-        obradaTrener = new ObradaTrener();
-        obradaStatistika = new ObradaStatistika();
         postavke();
         ucitaj();
         
@@ -207,8 +202,9 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
     }//GEN-LAST:event_btnDodajActionPerformed
 
     private void btnPromjeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromjeniActionPerformed
+        // ne radi dobro
         if (obrada.getEntitet() == null) {
-            JOptionPane.showMessageDialog(getRootPane(), "Prvo odaberite grupu");
+            JOptionPane.showMessageDialog(getRootPane(), "Prvo odaberite ekipu");
             return;
         }
         postaviVrijednostiUEntitet();
@@ -224,7 +220,12 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
     }//GEN-LAST:event_btnPromjeniActionPerformed
 
     private void btnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiActionPerformed
-        // TODO add your handling code here:
+        try {
+            obrada.delete();
+            ucitaj();
+        } catch (NbaExepction ex) {
+            JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
+        }
     }//GEN-LAST:event_btnObrisiActionPerformed
 
     /**
@@ -249,7 +250,7 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
     // End of variables declaration//GEN-END:variables
 
     @Override
-    public void postaviVrijednostiUEntitet() { // treba datum upogonit da prikazuje koji je dan
+    public void postaviVrijednostiUEntitet() { // datum radi, treba staviti HR datum
         var e = obrada.getEntitet();
         if (dpDatumPocetka.getDate() != null) {
             e.setDatumPocetka(Date.from(
@@ -261,6 +262,7 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
         
         e.setDomaca((Ekipa) cmbEkipaDomacin.getSelectedItem());
         e.setGost((Ekipa) cmbEkipaGost.getSelectedItem());
+        
         
     }
 
@@ -275,19 +277,17 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
         new ObradaEkipa().read().forEach(s -> {
             m.addElement(s);
         });
-        cmbEkipaDomacin.setModel(m);
-        cmbEkipaGost.setModel(m);
+         cmbEkipaDomacin.setModel(m);
         
-        /*DefaultComboBoxModel<Trener> mm = new DefaultComboBoxModel<>();
-        Trener t = new Trener();
-        t.setId(Long.valueOf(0));
-        t.setIme("Nije odabrano");
-        mm.addElement(t);
-        new ObradaTrener().read().forEach(s -> {
-            mm.addElement(s);
+        DefaultComboBoxModel<Ekipa> m2 = new DefaultComboBoxModel<>();
+        Ekipa e2 = new Ekipa();
+        e2.setId(Long.valueOf(0));
+        e2.setNazivEkipe("Nije odabrano");
+        m2.addElement(e2);
+        new ObradaEkipa().read().forEach(s -> {
+            m2.addElement(s);
         });
-        cmbTrenerDomaceEkipe.setModel(mm);
-        cmbTrenerGostujuceEkipe.setModel(mm);*/
+        cmbEkipaGost.setModel(m2);
         
         DatePickerSettings dps = new DatePickerSettings(new Locale("hr", "HR"));
         dps.setFormatForDatesCommonEra("dd.MM.yyyy");

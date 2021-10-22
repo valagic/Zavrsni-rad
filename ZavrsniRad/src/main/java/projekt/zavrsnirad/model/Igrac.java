@@ -4,12 +4,8 @@
  * and open the template in the editor.
  */
 package projekt.zavrsnirad.model;
-
-import java.math.BigDecimal;
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-
 /**
  *
  * @author valagic
@@ -19,19 +15,25 @@ public class Igrac extends Osoba{
     
     private String ime;
     private String prezime;
-
+    
+    @ManyToOne
+    private Ekipa ekipa;
+    
+    public Ekipa getEkipa() {
+        return ekipa;
+    }
+    public void setEkipa(Ekipa ekipa) {
+        this.ekipa = ekipa;
+    }
     public String getIme() {
         return ime;
     }
-
     public void setIme(String ime) {
         this.ime = ime;
     }
-
     public String getPrezime() {
         return prezime;
     }
-
     public void setPrezime(String prezime) {
         this.prezime = prezime;
     }
@@ -42,9 +44,4 @@ public class Igrac extends Osoba{
     public String toString() {
         return getIme() + " " + getPrezime();
     }
-
-  
-    
-    
-    
 }

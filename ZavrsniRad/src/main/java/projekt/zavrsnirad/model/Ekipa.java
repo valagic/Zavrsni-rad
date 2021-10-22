@@ -4,67 +4,57 @@
  * and open the template in the editor.
  */
 package projekt.zavrsnirad.model;
-
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
-
+import javax.persistence.MappedSuperclass;
+import javax.persistence.OneToMany;
 /**
  *
  * @author valagic
  */
 @Entity
 public class Ekipa extends Entitet{
-
     private String naziv;
-
     @ManyToOne
     private Trener treneri;
     
-    @ManyToOne
-    private Igrac igraci;
+    @OneToMany(mappedBy = "ekipa")
+    private List<Igrac> igraci;
  
     public String getNazivEkipe() {
         return naziv;
     }
-
     public void setNazivEkipe(String nazivEkipe) {
         this.naziv = nazivEkipe;
     }
-
     public Trener getTreneri() {
         return treneri;
     }
-
     public void setTreneri(Trener treneri) {
         this.treneri = treneri;
     }
-
-    public Igrac getIgraci() {
+    public List<Igrac> getIgraci() {
         return igraci;
     }
-
-    public void setIgraci(Igrac igraci) {
+    public void setIgraci(List<Igrac> igraci) {
         this.igraci = igraci;
     }
-
     
     
     @Override
     public String toString() {
         return getNazivEkipe();
     }
-
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.naziv);
-        hash = 59 * hash + Objects.hashCode(this.treneri);
-        hash = 59 * hash + Objects.hashCode(this.igraci);
+        hash = 41 * hash + Objects.hashCode(this.naziv);
+        hash = 41 * hash + Objects.hashCode(this.treneri);
+        hash = 41 * hash + Objects.hashCode(this.igraci);
         return hash;
     }
-
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -88,6 +78,4 @@ public class Ekipa extends Entitet{
         }
         return true;
     }
-
-    
 }

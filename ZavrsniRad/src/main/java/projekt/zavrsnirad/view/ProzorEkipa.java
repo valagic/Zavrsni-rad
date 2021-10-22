@@ -188,9 +188,9 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
     private void btnEkipaDomacaDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEkipaDomacaDodajActionPerformed
         obrada.setEntitet(new Ekipa());
         postaviVrijednostiUEntitet();
-
         try {
             obrada.create();
+            postaviEkipuNaIgrace();
             ucitaj();
         } catch (NbaExepction ex) {
             JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
@@ -240,36 +240,45 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
     @Override
     public void postaviVrijednostiUEntitet() {
         var e = obrada.getEntitet();
+        e.setTreneri(lstEkipaTreneri.getSelectedValue());
         e.setNazivEkipe(txtEkipaNazivDomace.getText());
-        
-        /*DefaultListModel<Igrac> m = (DefaultListModel<Igrac>) lstEkipaIgraci.getModel();
-        for (Igrac i : lstEkipaIgraci.getSelectedValuesList()) {
-           
-                Igrac ig = new Igrac();
-                
-            }
-        }
-        lstEkipaIgraci.repaint();*/
         
     }
 
     @Override
     public void postavke() {
         DefaultListModel<Igrac> m = new DefaultListModel<>();
-        igrac.read().forEach(p -> {m.addElement(p);});
+        igrac.read().forEach(p -> {
+            m.addElement(p);
+        });
         lstEkipaIgraci.setModel(m);
-        
         DefaultListModel<Trener> mt = new DefaultListModel<>();
-        trener.read().forEach(p -> {mt.addElement(p);});
+        trener.read().forEach(p -> {
+            mt.addElement(p);
+        });
         lstEkipaTreneri.setModel(mt);
     }
 
     @Override
     public void ucitaj() {
         DefaultListModel<Ekipa> m = new DefaultListModel<>();
-        obrada.read().forEach(s->{m.addElement(s);});
+        obrada.read().forEach(s -> {
+            m.addElement(s);
+        });
         lstEntiteti.setModel(m);
     }
 
+    private void postaviEkipuNaIgrace() {
+        for (Igrac i : lstEkipaIgraci.getSelectedValuesList()) {
+            i.setEkipa(obrada.getEntitet());
+            ObradaIgrac obradaIgrac = new ObradaIgrac();
+            obradaIgrac.setEntitet(i);
+            try {
+                obradaIgrac.update();
+            } catch (NbaExepction ex) {
+                JOptionPane.showMessageDialog(null, ex.getPoruka());
+            }
+        }
+    }
     
 }

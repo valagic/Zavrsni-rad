@@ -7,6 +7,7 @@ package projekt.zavrsnirad.controller;
 
 import java.util.List;
 import projekt.zavrsnirad.model.Ekipa;
+import projekt.zavrsnirad.model.Entitet;
 import projekt.zavrsnirad.util.NbaExepction;
 
 /**
@@ -25,6 +26,7 @@ public class ObradaEkipa extends Obrada<Ekipa>{
         if(entitet.getNazivEkipe() == null || entitet.getNazivEkipe().trim().length() == 0){
             throw new NbaExepction("Molim unesite naziv ekipe");
         }}
+    
 
     @Override
     protected void kontrolaUpdate() throws NbaExepction {
@@ -33,7 +35,7 @@ public class ObradaEkipa extends Obrada<Ekipa>{
     @Override
     protected void kontrolaDelete() throws NbaExepction {
         }
-    
+  
     
     
 }

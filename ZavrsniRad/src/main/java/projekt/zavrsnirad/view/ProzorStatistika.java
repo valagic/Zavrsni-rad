@@ -245,7 +245,6 @@ public class ProzorStatistika extends javax.swing.JFrame implements ProzorSucelj
         try {
             obrada.create();
             postaviStatistikuNaIgraca();
-            //postaviStatistikuNaUtakmicu();
             ucitaj();
         } catch (NbaExepction ex) {
             JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
@@ -311,6 +310,7 @@ public class ProzorStatistika extends javax.swing.JFrame implements ProzorSucelj
         e.setBrojUkradenihLopti(Integer.parseInt(txtBrojUkradenihLopti.getText()));
         e.setBrojBlokiranihSuteva(Integer.parseInt(txtBrojBlokiranihSuteva.getText()));
         e.setBrojIzgubljenihLopti(Integer.parseInt(txtBrojIzgubljenihLopti.getText()));
+        e.setUtakmica(lstStatistikaUtakmica.getSelectedValue());
         
     }
 
@@ -345,18 +345,4 @@ public class ProzorStatistika extends javax.swing.JFrame implements ProzorSucelj
             }
         }
     }
-    
-      /*  private void postaviStatistikuNaUtakmicu() {
-        for (Utakmica u : lstStatistikaUtakmica.getSelectedValuesList()) {
-            u.setStatistika(obrada.getEntitet());
-            ObradaUtakmica obradaUtakmica = new ObradaUtakmica();
-            obradaUtakmica.setEntitet(u);
-            try {
-                obradaIgrac.update();
-            } catch (NbaExepction ex) {
-                JOptionPane.showMessageDialog(null, ex.getPoruka());
-            }
-        }
-    }*/
-    
 }

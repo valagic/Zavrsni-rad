@@ -252,6 +252,7 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
             m.addElement(p);
         });
         lstEkipaIgraci.setModel(m);
+        
         DefaultListModel<Trener> mt = new DefaultListModel<>();
         trener.read().forEach(p -> {
             mt.addElement(p);

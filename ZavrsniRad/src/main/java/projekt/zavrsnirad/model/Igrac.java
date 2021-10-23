@@ -19,6 +19,9 @@ public class Igrac extends Osoba{
     @ManyToOne
     private Ekipa ekipa;
     
+    @ManyToOne
+    private Statistika statistika;
+    
     public Ekipa getEkipa() {
         return ekipa;
     }
@@ -36,6 +39,14 @@ public class Igrac extends Osoba{
     }
     public void setPrezime(String prezime) {
         this.prezime = prezime;
+    }
+
+    public Statistika getStatistika() {
+        return statistika;
+    }
+
+    public void setStatistika(Statistika statistika) {
+        this.statistika = statistika;
     }
     
     

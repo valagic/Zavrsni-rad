@@ -14,8 +14,6 @@ import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import projekt.zavrsnirad.controller.ObradaEkipa;
 import projekt.zavrsnirad.controller.ObradaIgrac;
-import projekt.zavrsnirad.controller.ObradaStatistika;
-import projekt.zavrsnirad.controller.ObradaTrener;
 import projekt.zavrsnirad.controller.ObradaUtakmica;
 import projekt.zavrsnirad.model.Ekipa;
 import projekt.zavrsnirad.model.Utakmica;

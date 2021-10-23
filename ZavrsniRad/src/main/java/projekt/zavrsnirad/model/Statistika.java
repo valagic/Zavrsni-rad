@@ -5,8 +5,10 @@
  */
 package projekt.zavrsnirad.model;
 
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -24,8 +26,8 @@ public class Statistika extends Entitet{
     
  
     
-    @ManyToOne
-    private Igrac igrac;
+    @OneToMany(mappedBy = "statistika")
+    private List<Igrac> igraci;
     
     @ManyToOne
     private Utakmica utakmica;
@@ -79,21 +81,27 @@ public class Statistika extends Entitet{
         this.brojIzgubljenihLopti = brojIzgubljenihLopti;
     }
 
-    public Igrac getIgraci() {
-        return igrac;
+    public List<Igrac> getIgraci() {
+        return igraci;
     }
 
-    public void setIgraci(Igrac igraci) {
-        this.igrac = igraci;
+    public void setIgraci(List<Igrac> igraci) {
+        this.igraci = igraci;
     }
 
-    public Utakmica getUtakmice() {
+    public Utakmica getUtakmica() {
         return utakmica;
     }
 
-    public void setUtakmice(Utakmica utakmice) {
-        this.utakmica = utakmice;
+    public void setUtakmica(Utakmica utakmica) {
+        this.utakmica = utakmica;
     }
 
+    @Override
+    public String toString() {
+        return getBrojPoena() + " " + getBrojSkokova() + " " + getBrojAsistencija() + " " + getBrojUkradenihLopti()
+                + " " + getBrojBlokiranihSuteva() + " " + getBrojIzgubljenihLopti();
+    }
+    
     
 }

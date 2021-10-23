@@ -63,7 +63,6 @@ public class HibernateSessionPocetniInsert {
         ss.setBrojUkradenihLopti(2);
         ss.setBrojBlokiranihSuteva(1);
         ss.setBrojIzgubljenihLopti(0);
-        ss.setIgraci(i);
         
         s.save(ss);
        

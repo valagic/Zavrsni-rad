@@ -244,6 +244,8 @@ public class ProzorStatistika extends javax.swing.JFrame implements ProzorSucelj
 
         try {
             obrada.create();
+            postaviStatistikuNaIgraca();
+            //postaviStatistikuNaUtakmicu();
             ucitaj();
         } catch (NbaExepction ex) {
             JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
@@ -302,9 +304,13 @@ public class ProzorStatistika extends javax.swing.JFrame implements ProzorSucelj
 
     @Override
     public void postaviVrijednostiUEntitet() {
-        //var e = obrada.getEntitet();
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        
+        var e = obrada.getEntitet();
+        e.setBrojPoena(Integer.parseInt(txtBrojPoena.getText()));
+        e.setBrojSkokova(Integer.parseInt(txtBrojSkokova.getText()));
+        e.setBrojAsistencija(Integer.parseInt(txtBrojAsistencija.getText()));
+        e.setBrojUkradenihLopti(Integer.parseInt(txtBrojUkradenihLopti.getText()));
+        e.setBrojBlokiranihSuteva(Integer.parseInt(txtBrojBlokiranihSuteva.getText()));
+        e.setBrojIzgubljenihLopti(Integer.parseInt(txtBrojIzgubljenihLopti.getText()));
         
     }
 
@@ -326,4 +332,31 @@ public class ProzorStatistika extends javax.swing.JFrame implements ProzorSucelj
         obrada.read().forEach(s->{m.addElement(s);});
         lstEntiteti.setModel(m);
     }
+ 
+    private void postaviStatistikuNaIgraca() {
+        for (Igrac i : lstStatistikaIgraci.getSelectedValuesList()) {
+            i.setStatistika(obrada.getEntitet());
+            ObradaIgrac obradaIgrac = new ObradaIgrac();
+            obradaIgrac.setEntitet(i);
+            try {
+                obradaIgrac.update();
+            } catch (NbaExepction ex) {
+                JOptionPane.showMessageDialog(null, ex.getPoruka());
+            }
+        }
+    }
+    
+      /*  private void postaviStatistikuNaUtakmicu() {
+        for (Utakmica u : lstStatistikaUtakmica.getSelectedValuesList()) {
+            u.setStatistika(obrada.getEntitet());
+            ObradaUtakmica obradaUtakmica = new ObradaUtakmica();
+            obradaUtakmica.setEntitet(u);
+            try {
+                obradaIgrac.update();
+            } catch (NbaExepction ex) {
+                JOptionPane.showMessageDialog(null, ex.getPoruka());
+            }
+        }
+    }*/
+    
 }

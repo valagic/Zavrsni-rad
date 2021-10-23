@@ -26,6 +26,9 @@ public class Utakmica extends Entitet{
     
     @ManyToOne
     private Ekipa gost;
+    
+    /*@ManyToOne
+    private Statistika statistika;*/
 
     public String getNazivDvorane() {
         return nazivDvorane;
@@ -59,9 +62,18 @@ public class Utakmica extends Entitet{
         this.gost = gost;
     }
 
+    /*public Statistika getStatistika() {
+        return statistika;
+    }
+
+    public void setStatistika(Statistika statistika) {
+        this.statistika = statistika;
+    }*/
+
+    
     @Override
     public String toString() {
-        return getNazivDvorane() + " " + getDatumPocetka() + " " + getDomaca() + " - " + getGost();
+        return getDatumPocetka() + " " + getNazivDvorane()+ " " + getDomaca() + " - " + getGost();
     }
     
     

@@ -15,6 +15,7 @@ import projekt.zavrsnirad.controller.ObradaTrener;
 import projekt.zavrsnirad.model.Ekipa;
 import projekt.zavrsnirad.model.Igrac;
 import projekt.zavrsnirad.model.Trener;
+import projekt.zavrsnirad.util.Aplikacija;
 import projekt.zavrsnirad.util.NbaExepction;
 
 /**
@@ -277,6 +278,7 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
 
     @Override
     public void postavke() {
+        setTitle(Aplikacija.getNaslov("Ekipa"));
         DefaultListModel<Igrac> m = new DefaultListModel<>();
         igrac.read().forEach(p -> {
             m.addElement(p);

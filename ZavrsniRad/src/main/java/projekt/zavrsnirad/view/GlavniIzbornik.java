@@ -5,6 +5,8 @@
  */
 package projekt.zavrsnirad.view;
 
+import projekt.zavrsnirad.util.Aplikacija;
+
 /**
  *
  * @author valagic
@@ -16,6 +18,7 @@ public class GlavniIzbornik extends javax.swing.JFrame {
      */
     public GlavniIzbornik() {
         initComponents();
+        postavke();
     }
 
     /**
@@ -180,4 +183,8 @@ public class GlavniIzbornik extends javax.swing.JFrame {
     private javax.swing.JMenuItem jTrener;
     private javax.swing.JMenuItem jUtakmica;
     // End of variables declaration//GEN-END:variables
+
+    private void postavke() {
+        setTitle(Aplikacija.getNaslov("Glavni izbornik"));
+    }
 }

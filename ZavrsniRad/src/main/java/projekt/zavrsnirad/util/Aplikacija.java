@@ -13,4 +13,11 @@ public class Aplikacija {
  
     public static final String NASLOV_APP = "NBA aplikacija";
     
+    
+    
+    
+    public static String getNaslov(String naziv){
+        
+        return Aplikacija.NASLOV_APP + " " + naziv;
+    }
 }

@@ -200,6 +200,7 @@ public class ProzorIgrac extends javax.swing.JFrame implements ProzorSucelja{
     @Override
     public void postavke() {
         //setTitle(Aplikacija.NASLOV_APP);
+        setTitle(Aplikacija.getNaslov("Igraci"));
     }
 
     @Override

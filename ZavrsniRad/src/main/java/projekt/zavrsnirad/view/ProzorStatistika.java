@@ -13,6 +13,7 @@ import projekt.zavrsnirad.controller.ObradaUtakmica;
 import projekt.zavrsnirad.model.Igrac;
 import projekt.zavrsnirad.model.Statistika;
 import projekt.zavrsnirad.model.Utakmica;
+import projekt.zavrsnirad.util.Aplikacija;
 import projekt.zavrsnirad.util.NbaExepction;
 
 /**
@@ -323,6 +324,7 @@ public class ProzorStatistika extends javax.swing.JFrame implements ProzorSucelj
 
     @Override
     public void postavke() {
+        setTitle(Aplikacija.getNaslov("Statistika"));
         DefaultListModel<Igrac> mi = new DefaultListModel<>();
         igrac.read().forEach(s->{mi.addElement(s);});
         lstStatistikaIgraci.setModel(mi);

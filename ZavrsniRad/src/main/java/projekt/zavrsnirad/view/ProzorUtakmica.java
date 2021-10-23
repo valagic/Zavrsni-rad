@@ -17,6 +17,7 @@ import projekt.zavrsnirad.controller.ObradaIgrac;
 import projekt.zavrsnirad.controller.ObradaUtakmica;
 import projekt.zavrsnirad.model.Ekipa;
 import projekt.zavrsnirad.model.Utakmica;
+import projekt.zavrsnirad.util.Aplikacija;
 import projekt.zavrsnirad.util.NbaExepction;
 
 /**
@@ -266,7 +267,7 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
 
     @Override
     public void postavke() {
-        
+        setTitle(Aplikacija.getNaslov("Utakmica"));
         DefaultComboBoxModel<Ekipa> m = new DefaultComboBoxModel<>();
         Ekipa e = new Ekipa();
         e.setId(Long.valueOf(0));

@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 import projekt.zavrsnirad.controller.ObradaTrener;
 import projekt.zavrsnirad.model.Igrac;
 import projekt.zavrsnirad.model.Trener;
+import projekt.zavrsnirad.util.Aplikacija;
 import projekt.zavrsnirad.util.NbaExepction;
 
 /**
@@ -179,7 +180,7 @@ public class ProzorTrener extends javax.swing.JFrame implements ProzorSucelja{
 
     @Override
     public void postavke() {
-        //setTitle(Aplikacija.getNaslov("Igraci"));
+        setTitle(Aplikacija.getNaslov("Trener"));
     }
 
     @Override

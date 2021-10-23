@@ -32,6 +32,7 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
     private ObradaEkipa obrada;
     private ObradaIgrac igrac;
     private ObradaTrener trener;
+    private int odabraniIndex;
 
     /**
      * Creates new form ProzorEkipa
@@ -188,16 +189,24 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
     private void btnEkipaDomacaDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEkipaDomacaDodajActionPerformed
         obrada.setEntitet(new Ekipa());
         postaviVrijednostiUEntitet();
+
         try {
             obrada.create();
-            postaviEkipuNaIgrace();
             ucitaj();
+            postaviEkipuNaIgrace();
         } catch (NbaExepction ex) {
             JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
         }
     }//GEN-LAST:event_btnEkipaDomacaDodajActionPerformed
 
     private void btnEkipaDomacaPromjeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEkipaDomacaPromjeniActionPerformed
+        
+        // ne radi brisanje trenutno
+        
+        if (obrada.getEntitet() == null) {
+            JOptionPane.showMessageDialog(getRootPane(), "Prvo odaberite ekipu");
+            return;
+        }
         postaviVrijednostiUEntitet();
         try {
             obrada.update();
@@ -208,6 +217,27 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
     }//GEN-LAST:event_btnEkipaDomacaPromjeniActionPerformed
 
     private void btnEkipaDomacaObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEkipaDomacaObrisiActionPerformed
+        if (obrada.getEntitet() == null) {
+            JOptionPane.showMessageDialog(getRootPane(), "Prvo odaberite ekipu");
+            return;
+        }
+        
+        /*boolean brisanje = true;
+        if (lstEkipaIgraci.getModel().getSize() > 0) {
+            if (JOptionPane.showConfirmDialog(getParent(), "Ekipa ima igrace, sigurno zelite sve obrisati?",
+                    "Brisanje ekipe", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                obrada.getEntitet().setIgraci(new ArrayList<Igrac>());
+            } else {
+                brisanje = false;
+            }
+        }
+        if (brisanje) {
+            try {
+                obrada.delete();
+                ucitaj();
+        } catch (NbaExepction ex) {
+            JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
+        }*/
         try {
             obrada.delete();
             ucitaj();

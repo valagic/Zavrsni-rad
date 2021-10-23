@@ -247,6 +247,7 @@ public class ProzorStatistika extends javax.swing.JFrame implements ProzorSucelj
             obrada.create();
             postaviStatistikuNaIgraca();
             ucitaj();
+            pocistiPodatke();
         } catch (NbaExepction ex) {
             JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
         }
@@ -353,5 +354,14 @@ public class ProzorStatistika extends javax.swing.JFrame implements ProzorSucelj
                 JOptionPane.showMessageDialog(null, ex.getPoruka());
             }
         }
+    }
+
+    private void pocistiPodatke() {
+        txtBrojPoena.setText("");
+        txtBrojSkokova.setText("");
+        txtBrojAsistencija.setText("");
+        txtBrojUkradenihLopti.setText("");
+        txtBrojBlokiranihSuteva.setText("");
+        txtBrojIzgubljenihLopti.setText("");
     }
 }

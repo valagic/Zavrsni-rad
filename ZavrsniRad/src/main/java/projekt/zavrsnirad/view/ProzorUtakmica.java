@@ -194,6 +194,7 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
             
             obrada.create();
             ucitaj();
+            pocistiPodatke();
             //pocistiPodatke(); -> trebam kreirati metodu koje ce obrisati podatke
         } catch (NbaExepction ex) {
             JOptionPane.showMessageDialog(getRootPane(), ex.getPoruka());
@@ -301,5 +302,13 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
             m.addElement(g);
         });
         lstEntiteti.setModel(m);
+    }
+
+    private void pocistiPodatke() {
+        dpDatumPocetka.setDateToToday();
+        txtNazivDvorane.setText("");
+        cmbEkipaDomacin.setSelectedIndex(0);
+        cmbEkipaGost.setSelectedIndex(0);
+        
     }
 }

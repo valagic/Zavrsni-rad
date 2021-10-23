@@ -150,6 +150,7 @@ public class ProzorIgrac extends javax.swing.JFrame implements ProzorSucelja{
         try {
             obrada.create();
             ucitaj();
+            pocistiPodatke();
         } catch (NbaExepction ex) {
             JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
         }
@@ -208,5 +209,10 @@ public class ProzorIgrac extends javax.swing.JFrame implements ProzorSucelja{
         DefaultListModel<Igrac> m = new DefaultListModel<>();
         obrada.read().forEach(s->{m.addElement(s);});
         lstEntiteti.setModel(m);
+    }
+
+    private void pocistiPodatke() {
+        txtIme.setText("");
+        txtPrezime.setText("");
     }
 }

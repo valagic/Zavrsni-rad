@@ -150,6 +150,7 @@ public class ProzorTrener extends javax.swing.JFrame implements ProzorSucelja{
         try {
             obrada.create();
             ucitaj();
+            pocistiPodatke();
         } catch (NbaExepction ex) {
             JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
         }
@@ -206,5 +207,10 @@ public class ProzorTrener extends javax.swing.JFrame implements ProzorSucelja{
        var e = obrada.getEntitet();
        e.setIme(txtIme.getText());
        e.setPrezime(txtPrezime.getText());
+    }
+
+    private void pocistiPodatke() {
+        txtIme.setText("");
+        txtPrezime.setText("");
     }
 }

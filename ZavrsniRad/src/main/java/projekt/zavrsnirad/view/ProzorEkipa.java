@@ -194,6 +194,7 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
         try {
             obrada.create();
             ucitaj();
+            pocistiPodatke();
             postaviEkipuNaIgrace();
         } catch (NbaExepction ex) {
             JOptionPane.showMessageDialog(getParent(), ex.getPoruka());
@@ -312,6 +313,10 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
                 JOptionPane.showMessageDialog(null, ex.getPoruka());
             }
         }
+    }
+
+    private void pocistiPodatke() {
+        txtEkipaNazivDomace.setText("");
     }
     
 }

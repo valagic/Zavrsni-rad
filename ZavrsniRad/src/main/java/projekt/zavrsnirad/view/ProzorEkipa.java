@@ -200,9 +200,6 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
     }//GEN-LAST:event_btnEkipaDomacaDodajActionPerformed
 
     private void btnEkipaDomacaPromjeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEkipaDomacaPromjeniActionPerformed
-        
-        // ne radi brisanje trenutno
-        
         if (obrada.getEntitet() == null) {
             JOptionPane.showMessageDialog(getRootPane(), "Prvo odaberite ekipu");
             return;
@@ -217,6 +214,9 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
     }//GEN-LAST:event_btnEkipaDomacaPromjeniActionPerformed
 
     private void btnEkipaDomacaObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEkipaDomacaObrisiActionPerformed
+        
+        // ne radi brisanje trenutno
+        
         if (obrada.getEntitet() == null) {
             JOptionPane.showMessageDialog(getRootPane(), "Prvo odaberite ekipu");
             return;

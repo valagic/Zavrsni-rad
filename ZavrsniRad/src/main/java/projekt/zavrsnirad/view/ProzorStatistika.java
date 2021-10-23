@@ -252,7 +252,11 @@ public class ProzorStatistika extends javax.swing.JFrame implements ProzorSucelj
     }//GEN-LAST:event_btnDodajActionPerformed
 
     private void btnPromjeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromjeniActionPerformed
-         postaviVrijednostiUEntitet();
+        if (obrada.getEntitet() == null) {
+            JOptionPane.showMessageDialog(getRootPane(), "Prvo odaberite statistiku");
+            return;
+        }
+        postaviVrijednostiUEntitet();
         try {
             obrada.update();
             ucitaj();
@@ -262,6 +266,9 @@ public class ProzorStatistika extends javax.swing.JFrame implements ProzorSucelj
     }//GEN-LAST:event_btnPromjeniActionPerformed
 
     private void btnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiActionPerformed
+        
+        // ne radi brisanje
+        
         try {
             obrada.delete();
             ucitaj();

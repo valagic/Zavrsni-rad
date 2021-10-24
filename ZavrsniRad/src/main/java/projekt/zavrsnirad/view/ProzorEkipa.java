@@ -223,7 +223,7 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
             JOptionPane.showMessageDialog(getRootPane(), "Prvo odaberite ekipu");
             return;
         }
-        
+
         /*boolean brisanje = true;
         if (lstEkipaIgraci.getModel().getSize() > 0) {
             if (JOptionPane.showConfirmDialog(getParent(), "Ekipa ima igrace, sigurno zelite sve obrisati?",
@@ -318,5 +318,6 @@ public class ProzorEkipa extends javax.swing.JFrame implements ProzorSucelja{
     private void pocistiPodatke() {
         txtEkipaNazivDomace.setText("");
     }
-    
+
+  
 }

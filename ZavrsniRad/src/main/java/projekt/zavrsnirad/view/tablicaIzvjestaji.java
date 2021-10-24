@@ -25,10 +25,7 @@ import projekt.zavrsnirad.model.Utakmica;
  */
 public class tablicaIzvjestaji extends javax.swing.JFrame {
 
-    private ObradaEkipa obradaEkipa;
-    private ObradaIgrac obradaIgrac;
-    private ObradaStatistika obradaStatistika;
-    private ObradaTrener obradaTrener;
+
     private ObradaUtakmica obradaUtakmica;
     SimpleDateFormat sdf;
     DecimalFormatSymbols symbols = new DecimalFormatSymbols(new Locale("hr","HR"));
@@ -39,10 +36,6 @@ public class tablicaIzvjestaji extends javax.swing.JFrame {
      */
     public tablicaIzvjestaji() {
         initComponents();
-        obradaEkipa = new ObradaEkipa();
-        obradaIgrac = new ObradaIgrac();
-        obradaStatistika = new ObradaStatistika();
-        obradaTrener = new ObradaTrener();
         obradaUtakmica = new ObradaUtakmica();
         sdf = new SimpleDateFormat("dd.MM.yyyy");
         ucitaj();
@@ -110,9 +103,7 @@ public class tablicaIzvjestaji extends javax.swing.JFrame {
     private void ucitaj() {
         
         List<Utakmica> utakmica = obradaUtakmica.read();
-        List<Igrac> igrac = obradaIgrac.read();
-        
-        
+
         DefaultTableModel tblModel = (DefaultTableModel)tblUtakmica.getModel();
         
         for(Utakmica m : utakmica){
@@ -122,15 +113,6 @@ public class tablicaIzvjestaji extends javax.swing.JFrame {
                 m.getNazivDvorane().toString(),
                 m.getDomaca().toString(),
                 m.getGost().toString()
-            };
-            tblModel.addRow(row);
-        }
-        for(Igrac i : igrac){
-            String row[] = {
-                i.getIme().toString(),
-                i.getPrezime().toString(),
-                i.getStatistika().toString()
-                    
             };
             tblModel.addRow(row);
         }

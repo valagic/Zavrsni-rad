@@ -34,8 +34,14 @@ public class ObradaEkipa extends Obrada<Ekipa>{
 
     @Override
     protected void kontrolaDelete() throws NbaExepction {
+        makniEkipu(entitet);
         }
-  
     
-    
+    private void makniEkipu(Ekipa ekipa) {
+            session.beginTransaction();
+            session.createQuery("update Igrac set ekipa=null where ekipa=:ekipa")
+                   .setParameter("ekipa", ekipa)
+                   .executeUpdate();
+            session.getTransaction().commit();
+        }
 }

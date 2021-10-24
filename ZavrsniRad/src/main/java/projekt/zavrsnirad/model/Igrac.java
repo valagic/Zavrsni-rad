@@ -6,6 +6,7 @@
 package projekt.zavrsnirad.model;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 /**
  *
  * @author valagic
@@ -19,7 +20,7 @@ public class Igrac extends Osoba{
     @ManyToOne
     private Ekipa ekipa;
     
-    @ManyToOne
+    @OneToOne(mappedBy = "igrac")
     private Statistika statistika;
     
     public Ekipa getEkipa() {

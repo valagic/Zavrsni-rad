@@ -35,13 +35,24 @@ public class ObradaEkipa extends Obrada<Ekipa>{
     @Override
     protected void kontrolaDelete() throws NbaExepction {
         makniEkipu(entitet);
+        
         }
     
     private void makniEkipu(Ekipa ekipa) {
-            session.beginTransaction();
+        session.beginTransaction();
             session.createQuery("update Igrac set ekipa=null where ekipa=:ekipa")
                    .setParameter("ekipa", ekipa)
                    .executeUpdate();
+            session.createQuery("delete from Statistika where utakmica_id in("
+                    + "select id from Utakmica "
+                    + "where domacin_id=:ekipa or gost_id=:ekipa)")
+                   .setParameter("ekipa", ekipa)
+                   .executeUpdate();
+            session.createQuery("delete from Utakmica "
+                    + "where domacin_id=:ekipa "
+                    + "or gost_id=:ekipa")
+                   .setParameter("ekipa", ekipa)
+                   .executeUpdate();
             session.getTransaction().commit();
-        }
+   }
 }

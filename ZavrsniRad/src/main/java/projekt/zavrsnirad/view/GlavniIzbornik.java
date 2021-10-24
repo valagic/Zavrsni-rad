@@ -6,6 +6,8 @@
 package projekt.zavrsnirad.view;
 
 import projekt.zavrsnirad.util.Aplikacija;
+import projekt.zavrsnirad.util.HibernateSessionPocetniInsert;
+import projekt.zavrsnirad.util.Postavke;
 
 /**
  *
@@ -31,6 +33,9 @@ public class GlavniIzbornik extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu1 = new javax.swing.JMenu();
+        btnPocetniInsert = new javax.swing.JButton();
+        btnGithubLink = new javax.swing.JButton();
+        btnEraDijagram = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jIzbornik = new javax.swing.JMenu();
         jIgrac = new javax.swing.JMenuItem();
@@ -43,6 +48,27 @@ public class GlavniIzbornik extends javax.swing.JFrame {
         jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        btnPocetniInsert.setText("Pocetni insert");
+        btnPocetniInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPocetniInsertActionPerformed(evt);
+            }
+        });
+
+        btnGithubLink.setText("Github link");
+        btnGithubLink.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGithubLinkActionPerformed(evt);
+            }
+        });
+
+        btnEraDijagram.setText("Era dijagram");
+        btnEraDijagram.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEraDijagramActionPerformed(evt);
+            }
+        });
 
         jIzbornik.setText("Izbornik");
 
@@ -102,11 +128,24 @@ public class GlavniIzbornik extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnPocetniInsert, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                    .addComponent(btnGithubLink, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEraDijagram, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(265, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(96, 96, 96)
+                .addComponent(btnPocetniInsert)
+                .addGap(18, 18, 18)
+                .addComponent(btnGithubLink)
+                .addGap(18, 18, 18)
+                .addComponent(btnEraDijagram)
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         pack();
@@ -136,6 +175,20 @@ public class GlavniIzbornik extends javax.swing.JFrame {
     private void jIzlazActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jIzlazActionPerformed
         dispose();
     }//GEN-LAST:event_jIzlazActionPerformed
+
+    private void btnPocetniInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPocetniInsertActionPerformed
+        HibernateSessionPocetniInsert.unosUBazu();
+    }//GEN-LAST:event_btnPocetniInsertActionPerformed
+
+    private void btnGithubLinkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGithubLinkActionPerformed
+        Postavke.otvoriPoveznicu(Aplikacija.githubLink());
+                
+              
+    }//GEN-LAST:event_btnGithubLinkActionPerformed
+
+    private void btnEraDijagramActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEraDijagramActionPerformed
+        Postavke.otvoriPoveznicu(Aplikacija.getErDiagramLink());
+    }//GEN-LAST:event_btnEraDijagramActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,6 +226,9 @@ public class GlavniIzbornik extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEraDijagram;
+    private javax.swing.JButton btnGithubLink;
+    private javax.swing.JButton btnPocetniInsert;
     private javax.swing.JMenuItem jEkipa;
     private javax.swing.JMenuItem jIgrac;
     private javax.swing.JMenu jIzbornik;

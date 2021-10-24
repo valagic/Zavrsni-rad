@@ -65,7 +65,7 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
         btnDodaj = new javax.swing.JButton();
         btnPromjeni = new javax.swing.JButton();
         btnObrisi = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnIzvjestaj = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -105,10 +105,10 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
             }
         });
 
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnIzvjestaj.setText("Izvjestaj");
+        btnIzvjestaj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnIzvjestajActionPerformed(evt);
             }
         });
 
@@ -142,7 +142,7 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
                             .addComponent(lblDomacaEkipa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblGostujucaEkipa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 157, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1)
+                        .addComponent(btnIzvjestaj)
                         .addGap(21, 21, 21))))
         );
         layout.setVerticalGroup(
@@ -165,7 +165,7 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
                                 .addComponent(lblDomacaEkipa)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cmbEkipaDomacin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jButton1))
+                            .addComponent(btnIzvjestaj))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblGostujucaEkipa)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -245,9 +245,9 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
         }
     }//GEN-LAST:event_btnObrisiActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnIzvjestajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIzvjestajActionPerformed
         new tablicaIzvjestaji().setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnIzvjestajActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,12 +256,12 @@ public class ProzorUtakmica extends javax.swing.JFrame implements ProzorSucelja{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDodaj;
+    private javax.swing.JButton btnIzvjestaj;
     private javax.swing.JButton btnObrisi;
     private javax.swing.JButton btnPromjeni;
     private javax.swing.JComboBox<Ekipa> cmbEkipaDomacin;
     private javax.swing.JComboBox<Ekipa> cmbEkipaGost;
     private com.github.lgooddatepicker.components.DatePicker dpDatumPocetka;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDatumPocetka;
     private javax.swing.JLabel lblDomacaEkipa;

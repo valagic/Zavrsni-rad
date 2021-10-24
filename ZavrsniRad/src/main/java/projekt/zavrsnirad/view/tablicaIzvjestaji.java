@@ -61,11 +61,11 @@ public class tablicaIzvjestaji extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Id", "Datum Pocetka", "Naziv Dvorane", "Domaca Ekipa", "Gostujuca Ekipa", "Ime", "Prezime", "Statistika"
+                "Id", "Datum Pocetka", "Naziv Dvorane", "Domaca Ekipa", "Gostujuca Ekipa"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
 
             public Class getColumnClass(int columnIndex) {

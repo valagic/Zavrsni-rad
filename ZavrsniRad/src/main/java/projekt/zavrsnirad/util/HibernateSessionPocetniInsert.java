@@ -5,7 +5,11 @@
  */
 package projekt.zavrsnirad.util;
 
+import com.github.javafaker.Faker;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import org.hibernate.Session;
 import projekt.zavrsnirad.model.Ekipa;
 import projekt.zavrsnirad.model.Igrac;
@@ -27,46 +31,66 @@ public class HibernateSessionPocetniInsert {
         
         s.beginTransaction();
         
-        Igrac i = new Igrac();
-        i.setIme("Luka");
-        i.setPrezime("Doncic");
-
-
-        s.save(i);
+        Faker faker = new Faker();
+        Igrac igrac;
+        List<Igrac> igraci = new ArrayList<>();
+        for(int i = 0; i < 10; i++) {
+            igrac = new Igrac();
+            
+            String fakerIme = faker.name().firstName();
+            igrac.setIme(fakerIme);
+            String fakerPrezime = faker.name().lastName();
+            igrac.setPrezime(fakerPrezime);
+            s.save(igrac);
+            igraci.add(igrac);
+        }
         
-        Trener t = new Trener();
-        t.setIme("Pero");
-        t.setPrezime("Perić");
-
-
-        s.save(t);
+        Trener trener;
+        List<Trener> treneri = new ArrayList<>();
+        for(int i = 0; i<10; i++){
+            trener = new Trener();
+            
+            String fakerIme = faker.name().firstName();
+            trener.setIme(fakerIme);
+            String fakerPrezime = faker.name().lastName();
+            trener.setPrezime(fakerPrezime);
+            s.save(trener);
+            treneri.add(trener);
+        }
         
-        Ekipa e = new Ekipa();
-        e.setNazivEkipe("Dallas Mavericks");
-       
-        e.setTreneri(t);
-
-        s.save(e);
+        List<Ekipa> ekipe = new ArrayList<>();
         
-        Utakmica u = new Utakmica();
- 
-        u.setDatumPocetka(new Date());
-        u.setNazivDvorane("Gradski vrt");
-     
-       
-        s.save(u);
+        Ekipa ekipa = new Ekipa();
+        ekipa.setNazivEkipe("Dallas");
+        s.save(ekipa);
+        ekipe.add(ekipa);
         
-        Statistika ss = new Statistika();
-        ss.setBrojPoena(33);
-        ss.setBrojSkokova(8);
-        ss.setBrojAsistencija(4);
-        ss.setBrojUkradenihLopti(2);
-        ss.setBrojBlokiranihSuteva(1);
-        ss.setBrojIzgubljenihLopti(0);
+        Ekipa ekipaDva = new Ekipa();
+        ekipaDva.setNazivEkipe("Miami");
+        s.save(ekipaDva);
+        ekipe.add(ekipaDva);
         
-        s.save(ss);
-       
+        Ekipa ekipaTri = new Ekipa();
+        ekipaTri.setNazivEkipe("Boston");
+        s.save(ekipaTri);
+        ekipe.add(ekipaTri);
+        
+        Ekipa ekipaCetiri = new Ekipa();
+        ekipaCetiri.setNazivEkipe("Toronto");
+        s.save(ekipaCetiri);
+        ekipe.add(ekipaCetiri);
+        
+        Ekipa ekipaPet = new Ekipa();
+        ekipaPet.setNazivEkipe("Portland");
+        s.save(ekipaPet);
+        ekipe.add(ekipaPet);
+        
+        Ekipa ekipaSest = new Ekipa();
+        ekipaSest.setNazivEkipe("LA Lakers");
+        s.save(ekipaSest);
+        ekipe.add(ekipaSest);
+        
         s.getTransaction().commit();
     }
-
+ 
 }

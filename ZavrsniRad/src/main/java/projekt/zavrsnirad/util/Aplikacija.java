@@ -12,12 +12,19 @@ package projekt.zavrsnirad.util;
 public class Aplikacija {
  
     public static final String NASLOV_APP = "NBA aplikacija";
-    
-    
+    private static final String LINK_GITHUB = "https://github.com/valagic/Zavrsni-rad";
+    private static final String LINK_ER_DIAGRAM = "https://github.com/valagic/Zavrsni-rad";
     
     
     public static String getNaslov(String naziv){
         
         return Aplikacija.NASLOV_APP + " " + naziv;
+    }
+    public static String githubLink(){
+        return Aplikacija.LINK_GITHUB;
+    }
+    
+    public static String getErDiagramLink(){
+        return Aplikacija.LINK_ER_DIAGRAM;
     }
 }

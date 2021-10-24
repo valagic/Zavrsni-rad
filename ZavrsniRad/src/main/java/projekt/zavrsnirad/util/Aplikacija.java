@@ -13,7 +13,7 @@ public class Aplikacija {
  
     public static final String NASLOV_APP = "NBA aplikacija";
     private static final String LINK_GITHUB = "https://github.com/valagic/Zavrsni-rad";
-    private static final String LINK_ER_DIAGRAM = "https://github.com/valagic/Zavrsni-rad";
+    private static final String LINK_ER_DIAGRAM = "https://github.com/valagic/Zavrsni-rad/blob/main/ZavrsniRad/src/main/eraDijagram.png";
     
     
     public static String getNaslov(String naziv){
